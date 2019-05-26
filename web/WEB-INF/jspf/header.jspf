@@ -2,6 +2,7 @@
 <%@page import="br.com.fatecpg.config.User"%>
 <%@ page pageEncoding="UTF-8" %>
 <%
+  String path = request.getContextPath();
   String error = null;
   if(request.getParameter("logar")!=null){
       String login = request.getParameter("login");
@@ -36,4 +37,7 @@
 <h3>Bem vindo <%=user.getNm_user()%> </h3>
  <input type="submit" name="formLogoff" value="Sair"/>
 </form>
+<%if(user.getNm_cargo().equals("Gerente")){%>
+<a href="<%=path%>/gerente/cadastrarUsuario.jsp"> Cadastrar Novo Usuário</a>
+<%}%>
 <%}%>
