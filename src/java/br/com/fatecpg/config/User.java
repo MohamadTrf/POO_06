@@ -83,6 +83,17 @@ public class User {
                 return u;
             }
         
-    } 
+    }
+    
+    public static void addUser(String nm_user, String nm_senha, String nm_cargo, int cd_nivel_permissao) throws Exception{
+        String SQL = "INSERT INTO users (nm_user,nm_senha,nm_cargo,cd_nivel_permissao)VALUES("
+                +"?"
+                +",?"
+                +",?"
+                +",?"
+                +")";
+        Object parameters[]={nm_user,nm_senha,nm_cargo,cd_nivel_permissao};
+        DbConnection.getCommand(SQL, parameters);
+    }
         
 }
