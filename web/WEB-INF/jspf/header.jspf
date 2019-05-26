@@ -1,0 +1,39 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="br.com.fatecpg.config.User"%>
+<%@ page pageEncoding="UTF-8" %>
+<%
+  String error = null;
+  if(request.getParameter("logar")!=null){
+      String login = request.getParameter("login");
+      String password = request.getParameter("password");
+      User u = User.getUser(login, password);
+      if(u ==null){
+          error="Usuário ou senha estão invalidos, favor verificar";
+      }else{
+          session.setAttribute("user", u);  
+          response.sendRedirect(request.getRequestURI());
+      }
+  }
+     if(request.getParameter("formLogoff")!= null){
+       session.removeAttribute("user");
+       response.sendRedirect(request.getRequestURI());
+   }
+%>
+
+<%if(error!=null){%>
+     <h3 style="color:red"> <%= error %></h3>
+<%}%>
+    
+<%if(session.getAttribute("user")==null){%>
+    <form method="post">
+            Login <input type="text" name="login"/>
+            Senha <input type="password" name="password"/>
+            <input type="submit" name="logar" value="Entrar"/>
+    </form>
+<%}else{%>
+<% User user = (User) session.getAttribute("user");%>
+<form>
+<h3>Bem vindo <%=user.getNm_user()%> </h3>
+ <input type="submit" name="formLogoff" value="Sair"/>
+</form>
+<%}%>
