@@ -29,13 +29,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Cadastrar usuário</title>
     </head>
     <body>
         <%if(session.getAttribute("user")==null){%>
         <h2>Você não está autenticado para acessar este recurso</h2>
-        <%}%>
+        <%}else{%>
         <% User user = (User) session.getAttribute("user"); %>
+        <% if(!user.getNm_cargo().equals("Gerente")){%>
+        <h2>Você não tem permissão para acessar esse recurso <a href="../login.jsp"> clique aqui para voltar!</a></h2>
+            
+        <%}%>
         <h1>Cadastre os Funcionários que você deseja que utilize o Software senhor <%=user.getNm_user()%>!</h1>
         <form>
             Nome: <input type="text" name="nomeUser"/>
@@ -54,5 +58,7 @@
             <h1 style="red"> <%=erro%></h1>
             <input type="submit" name="cadastrarUser" value="Cadastrar Usuario"/>
         </form>
+            <a href="../login.jsp">Voltar</a>
+        <%}%>
     </body>
 </html>
