@@ -16,11 +16,11 @@ import java.util.Date;
 public class Ponto {
     private int cd_ponto;
     private Date dt_ponto;
-    private Time hora_entrada;
-    private Time hora_saida;
+    private Date hora_entrada;
+    private Date hora_saida;
     private int cd_usuario;
 
-    public Ponto(int cd_ponto, Date dt_ponto, Time hora_entrada, Time hora_saida, int cd_usuario) {
+    public Ponto(int cd_ponto, Date dt_ponto, Date hora_entrada, Date hora_saida, int cd_usuario) {
         this.cd_ponto = cd_ponto;
         this.dt_ponto = dt_ponto;
         this.hora_entrada = hora_entrada;
@@ -28,8 +28,8 @@ public class Ponto {
         this.cd_usuario = cd_usuario;
     }
 
-    public static void addPonto(Date dt_ponto,Time hora_entrada, Time hora_saida, int cd_usuario) throws Exception{
-        String SQL = "INSERT INTO PONTO(dt_ponto,hora_entrada,hora_saida,cd_usuario) VALUES("
+    public static void addPonto(Date dt_ponto,Date hora_entrada, Date hora_saida, int cd_usuario) throws Exception{
+        String SQL = "INSERT INTO PONTO(dt_ponto,hr_entrada,hr_saida,cd_usuario) VALUES("
                     +"?"
                     +",?"
                     +",?"
@@ -61,19 +61,19 @@ public class Ponto {
         this.dt_ponto = dt_ponto;
     }
 
-    public Time getHora_entrada() {
+    public Date getHora_entrada() {
         return hora_entrada;
     }
 
-    public void setHora_entrada(Time hora_entrada) {
+    public void setHora_entrada(Date hora_entrada) {
         this.hora_entrada = hora_entrada;
     }
 
-    public Time getHora_saida() {
+    public Date getHora_saida() {
         return hora_saida;
     }
 
-    public void setHora_saida(Time hora_saida) {
+    public void setHora_saida(Date hora_saida) {
         this.hora_saida = hora_saida;
     }
 
@@ -84,6 +84,4 @@ public class Ponto {
     public void setCd_usuario(int cd_usuario) {
         this.cd_usuario = cd_usuario;
     }
-    
-    
 }
