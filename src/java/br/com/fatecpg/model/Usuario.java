@@ -7,7 +7,7 @@ import java.util.ArrayList;
  *
  * @author MohamadTarif
  */
-public class User {
+public class Usuario {
 
     private int cd_user;
     private String nm_user;
@@ -15,7 +15,7 @@ public class User {
     private String nm_cargo;
     private int cd_nivel_permissao;
 
-    public User(int cd_user, String nm_user, String nm_senha, String nm_cargo, int cd_nivel_permissao) {
+    public Usuario(int cd_user, String nm_user, String nm_senha, String nm_cargo, int cd_nivel_permissao) {
         this.cd_user = cd_user;
         this.nm_user = nm_user;
         this.nm_senha = nm_senha;
@@ -23,7 +23,7 @@ public class User {
         this.cd_nivel_permissao = cd_nivel_permissao;
     }
 
-    public static User getUser(String nm_user, String nm_senha) throws Exception {
+    public static Usuario getUser(String nm_user, String nm_senha) throws Exception {
         String SQL = "SELECT * FROM USERS WHERE nm_user = ? AND nm_senha = ?";
         Object parameters[] = {nm_user, nm_senha};
         ArrayList<Object[]> list = ConnectionManager.responseQuery(SQL, parameters);
@@ -32,7 +32,7 @@ public class User {
             return null;
         } else {
             Object row[] = list.get(0);
-            User u = new User((int) row[0],
+            Usuario u = new Usuario((int) row[0],
                     (String) row[1],
                     (String) row[2],
                     (String) row[3],

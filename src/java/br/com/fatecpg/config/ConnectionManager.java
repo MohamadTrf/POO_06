@@ -17,7 +17,7 @@ public class ConnectionManager {
     private static ResultSet rs = null;
 
     private static final String DRIVER = "org.apache.derby.jdbc.ClientDriver";
-    private static final String URL = "jdbc:derby://localhost:1527/TP_POO";
+    private static final String URL = "jdbc:derby://localhost:1527/loja";
     private static final String USER = "root";
     private static final String PASSWORD = "root";
 
