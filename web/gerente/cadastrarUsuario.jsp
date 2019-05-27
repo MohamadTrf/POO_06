@@ -34,6 +34,7 @@
     <body>
         <%if(session.getAttribute("user")==null){%>
         <h2>Você não está autenticado para acessar este recurso</h2>
+        <a href="../login.jsp"> Clique aqui para voltar </a>
         <%}else{%>
         <% User user = (User) session.getAttribute("user"); %>
         <% if(!user.getNm_cargo().equals("Gerente")){%>

@@ -27,10 +27,12 @@
    }
    if(request.getParameter("deleteCliente")!=null){
      try{
+       erro="";
        msg="Cliente deletado com sucesso";
        int id = Integer.parseInt(request.getParameter("id"));
        Cliente.deleteCliente(id);    
      }catch(Exception ex){
+        msg="";
         erro = ex.getMessage(); 
      }
    
@@ -44,6 +46,7 @@
     <body>
      <%if(session.getAttribute("user")==null){%>
         <h2>Você não está autenticado para acessar este recurso</h2>
+        <a href="login.jsp">Clique aqui para Voltar </a> 
      <%}else{%>
         <h1>Cadastro de Clientes!</h1>
         <form>
