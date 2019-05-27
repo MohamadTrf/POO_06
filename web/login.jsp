@@ -9,10 +9,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <%@include file="WEB-INF/jspf/header.jspf" %>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
     </head>
     <body>
-        <%@include file="WEB-INF/jspf/header.jspf" %>
+            <%@include file="WEB-INF/jspf/footer.jspf" %>
     </body>
 </html>
