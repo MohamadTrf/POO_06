@@ -98,5 +98,4 @@ public class Cliente {
     public void setNm_email(String nm_email) {
         this.nm_email = nm_email;
     }
-    
 }
