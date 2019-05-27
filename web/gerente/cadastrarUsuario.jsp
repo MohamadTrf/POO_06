@@ -4,9 +4,10 @@
     Author     : MohamadTarif
 --%>
 
-<%@page import="br.com.fatecpg.config.User"%>
+<%@page import="br.com.fatecpg.model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+ <% Usuario user = (Usuario) session.getAttribute("user"); %>
 <%  
    String erro = "";
    String msg = "";
@@ -18,12 +19,29 @@
        
        try{
            msg = "Usuário cadastrado com sucesso";
-           User.addUser(nome, senha, cargo, permissao);
+           Usuario.addUser(nome, senha, cargo, permissao);
            //response.sendRedirect(request.getRequestURI());
        }catch(Exception ex){
+           msg="";
            erro = ex.getMessage();
        }
        
+   }
+   
+   if(request.getParameter("deletarUsuario")!=null){
+       try{
+        int id = Integer.parseInt(request.getParameter("id"));
+        if(user.getCd_user()==id){
+         erro="Você não pode deletar sua própria conta";   
+        }else{
+           erro="";
+           msg="Usuário deletado com sucesso";
+           Usuario.deleteUsuario(id);
+        }
+       }catch(Exception ex){
+           msg="";
+           erro= ex.getMessage();
+       }
    }
 %>
 <html>
@@ -36,7 +54,7 @@
         <h2>Você não está autenticado para acessar este recurso</h2>
         <a href="../login.jsp"> Clique aqui para voltar </a>
         <%}else{%>
-        <% User user = (User) session.getAttribute("user"); %>
+       
         <% if(!user.getNm_cargo().equals("Gerente")){%>
         <h2>Você não tem permissão para acessar esse recurso <a href="../login.jsp"> clique aqui para voltar!</a></h2>
             
@@ -60,6 +78,25 @@
             <input type="submit" name="cadastrarUser" value="Cadastrar Usuario"/>
         </form>
             <a href="../login.jsp">Voltar</a>
+            <table border="1">
+                <tr>
+                    <th>Nome</th>
+                    <th>Cargo</th>
+                    <th>Deletar</th>
+                </tr>
+                <%for(Usuario u: Usuario.getUsers()){ %>
+                    <tr>
+                        <th><%=u.getNm_user()%></th>
+                        <th><%=u.getNm_cargo()%></th>
+                        <td>
+                            <form>
+                                <input type="hidden" name="id" value="<%=u.getCd_user()%>" />
+                                <input type="submit" name="deletarUsuario" value="Remover Usuário"/>
+                            </form>
+                        </td>
+                    </tr>
+                <%}%>
+            </table>
         <%}%>
     </body>
 </html>
