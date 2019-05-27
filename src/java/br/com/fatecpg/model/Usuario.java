@@ -64,7 +64,7 @@ public class Usuario {
     }
 
     
-    public static void deleteCliente(int cd_user) throws Exception{
+    public static void deleteUsuario(int cd_user) throws Exception{
         String SQL = "DELETE FROM USUARIO WHERE cd_usuario= ?";
         Object parameters [] = {cd_user};
         ConnectionManager.executeQuery(SQL, parameters);
