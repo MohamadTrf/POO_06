@@ -1,4 +1,4 @@
-<%-- 
+    <%-- 
     Document   : login
     Created on : 25/05/2019, 21:44:54
     Author     : MohamadTarif
@@ -13,8 +13,6 @@
         <title>Login</title>
     </head>
     <body>
-
         <%@include file="WEB-INF/jspf/header.jspf" %>
-
     </body>
 </html>
