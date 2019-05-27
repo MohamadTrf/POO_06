@@ -52,6 +52,12 @@ public class Cliente {
         Object parameters[] = {nm_cliente, nm_endereco, cd_cpf, nm_email};
         ConnectionManager.executeQuery(SQL, parameters);
     }
+    
+    public static void deleteCliente(int cd_cliente) throws Exception{
+        String SQL = "DELETE FROM CLIENTE WHERE cd_cliente ?";
+        Object parameters [] = {cd_cliente};
+        ConnectionManager.executeQuery(SQL, parameters);
+    }
 
     public int getCd_cliente() {
         return cd_cliente;
