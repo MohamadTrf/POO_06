@@ -5,16 +5,16 @@
 
 <style>
     #login {
-      width: 20%;
-      margin-left: 40%;
+        width: 20%;
+        margin-left: 40%;
         margin-top: 10%;
     }
-    
+
     #pswd {
         width: 20%;
         margin-left: 40%;
         margin-top: 0.5%;
-       
+
     }
     #botao {
         width: 20%;
@@ -26,27 +26,27 @@
 
 
 <nav class="navbar navbar-dark bg-primary">
-<nav class="navbar navbar-expand-lg">
-  <a class="navbar-brand" href="#">POO6</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href    ="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Cliente</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pedido</a>
-      </li>
-      <li class="nav-item dropdown">
-      </li>
-    </ul>
-  </div>
-</nav>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">POO6</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href    ="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cliente</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pedido</a>
+                </li>
+                <li class="nav-item dropdown">
+                </li>
+            </ul>
+        </div>
+    </nav>
 </nav>
 
 
@@ -54,47 +54,51 @@
 <%@page import="br.com.fatecpg.model.Usuario"%>
 <%@ page pageEncoding="UTF-8" %>
 <%
-  String path = request.getContextPath();
-  String error = null;
-  if(request.getParameter("logar")!=null){
-      String login = request.getParameter("login");
-      String password = request.getParameter("password");
-      Usuario u = Usuario.getUser(login, password);
-      if(u ==null){
-          error="Usuário ou senha estão invalidos, favor verificar";
-      }else{
-          session.setAttribute("user", u);  
-          response.sendRedirect(request.getRequestURI());
-      }
-  }
-     if(request.getParameter("formLogoff")!= null){
-       session.removeAttribute("user");
-       response.sendRedirect(request.getRequestURI());
-   }
+    String path = request.getContextPath() + "/";
+    String error = null;
+    if (request.getParameter("logar") != null) {
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
+        Usuario u = Usuario.getUser(login, password);
+        if (u == null) {
+            error = "Usuário ou senha estão invalidos, favor verificar";
+        } else {
+            session.setAttribute("user", u);
+            response.sendRedirect(request.getRequestURI());
+        }
+    }
+    if (request.getParameter("formLogoff") != null) {
+        session.removeAttribute("user");
+        response.sendRedirect(request.getRequestURI());
+    }
 %>
 
-<%if(error!=null){%>
-     <h3 style="color:red"> <%= error %></h3>
+<%if (error != null) {%>
+<h3 style="color:red"> <%= error%></h3>
 <%}%>
-    
-<%if(session.getAttribute("user")==null){%>
-    <form method="post">
-        <input type="text" class="form-control" name="login" id="login" placeholder="Usuário"/>
-        <input type="password" class="form-control" name="password" id="pswd" placeholder="Senha"/>
-            <input type="submit" class="btn btn-primary form-control" id="botao" name="logar" value="Entrar"/>
-    </form>
-    
-<%}else{%>
+
+<%if (session.getAttribute("user") == null) {%>
+<form method="post">
+    <input type="text" class="form-control" name="login" id="login" placeholder="Usuário"/>
+    <input type="password" class="form-control" name="password" id="pswd" placeholder="Senha"/>
+    <input type="submit" class="btn btn-primary form-control" id="botao" name="logar" value="Entrar"/>
+</form>
+
+<%} else {%>
 <% Usuario user = (Usuario) session.getAttribute("user");%>
 <form>
-<h3>Bem vindo <%=user.getNm_user()%> </h3>
- <input type="submit" name="formLogoff" value="Sair"/>
+    <h3>Bem vindo <%=user.getNm_user()%> </h3>
+    <input type="submit" name="formLogoff" value="Sair"/>
 </form>
-<a href="<%=path%>/cadastrarCliente.jsp">Cadastrar Clientes</a>
-<%if(user.getNm_cargo().equals("Gerente")){%>
-<a href="<%=path%>/gerente/cadastrarUsuario.jsp"> Cadastrar Novo Usuário</a>
+<a href="<%=path%>cadastrarCliente.jsp">Cadastrar Clientes</a>
+<br>
+<a href="<%=path%>cadastrarProduto.jsp"> Cadastrar Produto </a>
+<br>
+<%if (user.getNm_cargo().equals("Gerente")) {%>
+<a href="<%=path%>gerente/cadastrarUsuario.jsp"> Cadastrar Novo Usuário</a>
 <%}%>
-<%if(user.getNm_cargo().equals("Supervisor")|| user.getNm_cargo().equals("Vendedor")){%>
-<a href="<%=path%>/supervisor/vendedor/cadastrarPonto.jsp"> Cadastrar Ponto </a>
+
+<%if (user.getNm_cargo().equals("Supervisor") || user.getNm_cargo().equals("Vendedor")) {%>
+<a href="<%=path%>supervisor/vendedor/cadastrarPonto.jsp"> Cadastrar Ponto </a>
 <%}%>
 <%}%>
