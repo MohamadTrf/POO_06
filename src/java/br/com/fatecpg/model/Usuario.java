@@ -71,7 +71,7 @@ public class Usuario {
     }
     
     public static void addUser(String nm_user, String nm_senha, String nm_cargo, int cd_nivel_permissao) throws Exception {
-        String SQL = "INSERT INTO USUARIO (nm_user,nm_senha,nm_cargo,cd_nivel_permissao)VALUES("
+        String SQL = "INSERT INTO USUARIO (nm_usuario,nm_senha,nm_cargo,cd_nivel_permissao)VALUES("
                 + "?"
                 + ",?"
                 + ",?"
@@ -81,7 +81,7 @@ public class Usuario {
         ConnectionManager.executeQuery(SQL, parameters);
     }
 
-    public long getCd_user() {
+    public int getCd_user() {
         return cd_user;
     }
 

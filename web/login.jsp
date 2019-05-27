@@ -4,7 +4,7 @@
     Author     : MohamadTarif
 --%>
 
-<%@page import="br.com.fatecpg.config.User"%>
+<%@page import="br.com.fatecpg.model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@
         <title>Login</title>
     </head>
     <body>
-        <h1>Entre com um usuário e senha para utilizar o Sistema!</h1>
+
         <%@include file="WEB-INF/jspf/header.jspf" %>
 
     </body>
