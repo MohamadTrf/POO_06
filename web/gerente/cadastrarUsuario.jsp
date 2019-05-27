@@ -65,8 +65,8 @@
             Senha: <input type="password" name="senhaUser"/>
             Cargo:
             <select name="cargo">
-                <option value="supervisor"> Supervisor </option>
-                <option value="vendedor">Vendedor</option>
+                <option value="Supervisor"> Supervisor </option>
+                <option value="Vendedor">Vendedor</option>
             </select>
             Código permissão
             <select name="permissao">
