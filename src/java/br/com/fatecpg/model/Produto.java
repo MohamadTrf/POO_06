@@ -29,6 +29,7 @@ public class Produto {
     public static Produto getProdutoByID(int id) throws Exception {
         String SQL = "SELECT * FROM produto WHERE cd_produto = ?";
         Object parameters[] = {id};
+        
         ArrayList<Object[]> list = ConnectionManager.responseQuery(SQL, parameters);
 
         if (list.isEmpty()) {
