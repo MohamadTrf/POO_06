@@ -54,7 +54,7 @@ public class Cliente {
     }
     
     public static void deleteCliente(int cd_cliente) throws Exception{
-        String SQL = "DELETE FROM CLIENTE WHERE cd_cliente ?";
+        String SQL = "DELETE FROM CLIENTE WHERE cd_cliente= ?";
         Object parameters [] = {cd_cliente};
         ConnectionManager.executeQuery(SQL, parameters);
     }
