@@ -39,7 +39,6 @@ public class Usuario {
             
             usuarios.add(u);
         }
-        
         return usuarios;
     }
     
