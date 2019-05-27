@@ -58,7 +58,7 @@
         <% if(!user.getNm_cargo().equals("Gerente")){%>
         <h2>Você não tem permissão para acessar esse recurso <a href="../login.jsp"> clique aqui para voltar!</a></h2>
             
-        <%}%>
+        <%}else{%>
         <h1>Cadastre os Funcionários que você deseja que utilize o Software senhor <%=user.getNm_user()%>!</h1>
         <form>
             Nome: <input type="text" name="nomeUser"/>
@@ -97,6 +97,6 @@
                     </tr>
                 <%}%>
             </table>
-        <%}%>
+        <%}}%>
     </body>
 </html>
