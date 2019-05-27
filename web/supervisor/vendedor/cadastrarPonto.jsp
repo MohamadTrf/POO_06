@@ -16,18 +16,23 @@
     String msg = "";
     String erro = "";
     if(request.getParameter("cadastrarPonto")!=null){
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date dataEntrada = format.parse(request.getParameter("dataPonto"));
         SimpleDateFormat formatH = new SimpleDateFormat("hh:mm");
         Date horaEntrada = formatH.parse(request.getParameter("horaEntrada"));
         Date horaSaida = formatH.parse(request.getParameter("horaSaida"));
         int id = Integer.parseInt(request.getParameter("id"));
         
-        try{
-            Ponto.addPonto(dataEntrada, horaEntrada, horaSaida, id);
-        }catch(Exception ex){
-            
-        }
+       try{
+           erro="";
+           msg="Ponto cadastrado com sucesso";
+           Ponto.addPonto(dataEntrada, horaEntrada, horaSaida, id);
+       }catch(Exception ex){
+           msg="";
+           erro = ex.getMessage();
+       }
+
+     
         
     }
  %>
@@ -46,6 +51,8 @@
             <input type="hidden" name="id" value="<%=user.getCd_user()%>"/>
             <input type="submit" name="cadastrarPonto" value="Registrar Ponto"/>
         </form>
+            <h3 style="color: blue"><%=msg%></h3>
+            <h3 style="color: red"><%=erro%></h3>
         <a href="../../login.jsp">Voltar</a>
     </body>
 </html>
