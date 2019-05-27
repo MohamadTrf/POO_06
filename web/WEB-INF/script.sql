@@ -8,7 +8,7 @@ CREATE TABLE usuario(
     cd_nivel_permissao INTEGER NOT NULL,
     CONSTRAINT pk_cd_usuario PRIMARY KEY(cd_usuario)
 );
-INSERT INTO  usuario(nm_usuario,nm_senha,nm_cargo,cd_nivel_permissao) VALUES ('Teste','12345678','Gerente',1);
+INSERT INTO usuario (nm_usuario,nm_senha,nm_cargo,cd_nivel_permissao) VALUES ('Teste','12345678','Gerente',1);
 -- 
 
 -- PONTO
@@ -21,7 +21,7 @@ CREATE TABLE ponto(
    cd_usuario integer NOT NULL,
    CONSTRAINT fk_cd_usuario FOREIGN KEY (cd_usuario) references usuario
 );
-INSERT INTO ponto(dt_ponto,hr_entrada,hr_saida,cd_usuario) VALUES('2019-04-10', '12:00:00','15:10:10',1);
+INSERT INTO ponto (dt_ponto,hr_entrada,hr_saida,cd_usuario) VALUES('2019-04-10', '12:00:00','15:10:10',1);
 -- 
 
 -- CLIENTE
@@ -32,7 +32,7 @@ CREATE TABLE cliente(
     cd_cpf VARCHAR(11) NOT NULL,
     nm_email VARCHAR(80) NOT NULL
 );
-INSERT INTO cliente(nm_cliente,nm_endereco,cd_cpf,nm_email) VALUES('Teste','TesteEnd','12345678911','teste@teste');
+INSERT INTO cliente (nm_cliente,nm_endereco,cd_cpf,nm_email) VALUES('Teste','TesteEnd','12345678911','teste@teste');
 -- 
 
 -- FORNECEDOR
@@ -55,7 +55,7 @@ CREATE TABLE produto(
     cd_fornecedor integer NOT NULL,
     CONSTRAINT fk_cd_fornecedor FOREIGN KEY(cd_fornecedor) references fornecedor
 );
-INSERT INTO produto(nm_produto,qt_produto,vl_custo,vl_venda,cd_fornecedor) values('Porta',3,10.20,20.50,1);
+INSERT INTO produto (nm_produto,qt_produto,vl_custo,vl_venda,cd_fornecedor) values('Porta',3,10.20,20.50,1);
 -- 
 
 -- PEDIDO
