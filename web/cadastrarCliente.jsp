@@ -26,10 +26,14 @@
        
    }
    if(request.getParameter("deleteCliente")!=null){
+     try{
        msg="Cliente deletado com sucesso";
        int id = Integer.parseInt(request.getParameter("id"));
-       Cliente.deleteCliente(id);
-       
+       Cliente.deleteCliente(id);    
+     }catch(Exception ex){
+        erro = ex.getMessage(); 
+     }
+   
    }
 %>
 <html>
