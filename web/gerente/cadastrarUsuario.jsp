@@ -18,9 +18,13 @@
        int permissao = Integer.parseInt(request.getParameter("permissao"));
        
        try{
+           erro="";
+           if(user.getNm_user().equals(nome)){
+               msg="Usuário  já existe no sistema";
+           }else{
            msg = "Usuário cadastrado com sucesso";
            Usuario.addUser(nome, senha, cargo, permissao);
-           //response.sendRedirect(request.getRequestURI());
+           } //response.sendRedirect(request.getRequestURI());
        }catch(Exception ex){
            msg="";
            erro = ex.getMessage();
