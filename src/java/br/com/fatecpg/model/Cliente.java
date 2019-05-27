@@ -1,5 +1,6 @@
-package br.com.fatecpg.config;
+package br.com.fatecpg.model;
 
+import br.com.fatecpg.config.ConnectionManager;
 import java.util.ArrayList;
 
 /**
