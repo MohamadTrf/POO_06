@@ -60,7 +60,7 @@ public class Fornecedor {
 
     
     public static void addFornecedor(String nm_fornecedor, String nm_endereco) throws Exception {
-        String SQL = "INSERT INTO fornecedor (nm_produto, endereco) "
+        String SQL = "INSERT INTO fornecedor (nm_fornecedor, nm_endereco) "
                 + "VALUES (?, ?)";
 
         Object parameters[] = {nm_fornecedor, nm_endereco};
