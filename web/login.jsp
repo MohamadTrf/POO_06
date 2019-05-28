@@ -4,33 +4,11 @@ Created on : 25/05/2019, 21:44:54
 Author     : MohamadTarif
 --%>
 
-<style>
-    #login {
-        width: 20%;
-        margin-left: 40%;
-        margin-top: 10%;
-    }
-
-    #pswd {
-        width: 20%;
-        margin-left: 40%;
-        margin-top: 0.5%;
-
-    }
-
-    #botao {
-        width: 20%;
-        margin-left: 40%;
-        margin-bottom: -3%;
-    }
-</style>
-
-
 <%@page import="br.com.fatecpg.model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    String error = null;
+    String error = "";
 
     if (request.getParameter("logar") != null) {
         String login = request.getParameter("txtLogin");
@@ -56,17 +34,25 @@ Author     : MohamadTarif
     </head>
     <body>
 
-        <form method="post">
-            <div class="form-group">
-                <input type="text" class="form-control" name="txtLogin" id="login" placeholder="Usuário"/>
-            </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Login</h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%=error%></h6>
 
-            <div class="form-group">
-                <input type="password" class="form-control" name="txtPassword" id="pswd" placeholder="Senha"/>
-            </div>
+                <form method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="txtLogin" id="login" placeholder="Usuário"/>
+                    </div>
 
-            <input type="submit" class="btn btn-primary form-control" id="botao" name="logar" value="Entrar"/>
-        </form>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="txtPassword" id="pswd" placeholder="Senha"/>
+                    </div>
+
+                    <input type="submit" class="btn btn-primary form-control" id="botao" name="logar" value="Entrar"/>
+                </form>
+            </div>
+        </div>
+
 
         <%@include file="WEB-INF/jspf/footer.jspf" %>
 
