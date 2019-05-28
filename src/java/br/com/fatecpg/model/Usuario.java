@@ -59,7 +59,12 @@ public class Usuario {
 
             return u;
         }
+    }
 
+    public static void alterUsuario(String nome, String cargo, int permissao, int id) throws Exception {
+        String SQL = "UPDATE usuario SET nm_usuario = ?, nm_cargo = ?, cd_nivel_permissao = ? WHERE cd_usuario = ?";
+        Object parameters[] = {nome, cargo, permissao, id};
+        ConnectionManager.executeQuery(SQL, parameters);
     }
 
     public static void deleteUsuario(int cd_user) throws Exception {
