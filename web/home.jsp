@@ -37,24 +37,24 @@
         <h4>Seu nivel de permissões é de <%=acesso%></h4>
         <h4>Você tem acesso as seguintes funcionalidades: </h4>
 
-        <a href="cadastrarCliente.jsp">Cadastrar Clientes</a>
+        <a href="cliente.jsp">Cadastrar Clientes</a>
         <br>
         <a href="cadastrarProduto.jsp"> Cadastrar Produto </a>
         <br>
 
         <%if (nivel == 1) {%>
-        <a href="gerente/cadastrarUsuario.jsp"> Cadastrar Novo Usuário</a>
+        <a href="cadastrarUsuario.jsp"> Cadastrar Novo Usuário</a>
         <%}%>
 
         <br>
 
         <%if (nivel == 1 || nivel == 2) {%>
-        <a href="fornecedor/cadastrarFornecedor.jsp">Cadastrar Fornecedor</a>
+        <a href="cadastrarFornecedor.jsp">Cadastrar Fornecedor</a>
         <%}%>
 
         <br>
         <%if (nivel == 2 || nivel == 3) {%>
-        <a href="supervisor/vendedor/cadastrarPonto.jsp"> Cadastrar Ponto </a>
+        <a href="cadastrarPonto.jsp"> Cadastrar Ponto </a>
         <% }%>
 
         <% }%>

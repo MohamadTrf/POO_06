@@ -9,21 +9,21 @@
 <!DOCTYPE html>
 
 <style>
-     .form-group {
+    .form-group {
         width: 20%;
         margin-top: 2%;
         margin-left: 40%;
     }
     end {
-        
+
     }
     cpf {
-        
+
     }
     #botao1 {
         margin-left: 40%;
-         width: 20%;
-        
+        width: 20%;
+
     }
 </style>
 
@@ -31,7 +31,7 @@
 <%
     String erro = "";
     String msg = "";
-    
+
     if (request.getParameter("cadastrarCliente") != null) {
         String nome = request.getParameter("nomeCliente");
         String endereco = request.getParameter("enderecoCliente");
@@ -70,23 +70,23 @@
     <body>
 
         <form>
-             <div class="form-group">
-             <input type="text" class="form-control" name="nomeCliente" id="nome" placeholder="Nome"/>
-                 </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="enderecoCliente" id="end" placeholder="Endereço"/>
-                  </div>
-             <div class="form-group">
-              <input type="text" class="form-control" name="cpfCliente" id="cpf" placeholder="CPF"/>
-               </div>
-                 <div class="form-group">
+                <input type="text" class="form-control" name="nomeCliente" id="nome" placeholder="Nome"/>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="enderecoCliente" id="end" placeholder="Endereço"/>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="cpfCliente" id="cpf" placeholder="CPF"/>
+            </div>
+            <div class="form-group">
                 <input type="text" class="form-control" name="emailCliente" id="email" placeholder="Endereço"/>
-                        </div>
+            </div>
             <input type="submit" name="cadastrarCliente" value="Cadastrar Cliente" class="btn btn-primary" id="botao1"/>
 
             <h1 style="color: blue"> <%=msg%></h1>
             <h1 style="color: red"> <%=erro%></h1>
-                
+
         </form>
 
         <h3>Clientes Cadastrados</h3>
