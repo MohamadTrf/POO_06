@@ -49,15 +49,23 @@
         <h1>Cadastro de Clientes!</h1>
 
         <form>
-            Nome: <input type="text" name="nomeCliente"/>
-            Endereço: <input type="text" name="enderecoCliente"/>
-            CPF:<input type="text" name="cpfCliente"/>
-            Email:<input type="email" name="emailCliente"/>
-            <input type="submit" name="cadastrarCliente" value="Cadastrar Cliente"/>
+             <div class="form-group">
+             <input type="text" class="form-control" name="nomeCliente" id="nome" placeholder="Nome"/>
+                 </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="enderecoCliente" id="end" placeholder="Endereço"/>
+                  </div>
+             <div class="form-group">
+              <input type="text" class="form-control" name="cpfCliente" id="cpf" placeholder="CPF"/>
+               </div>
+                 <div class="form-group">
+                <input type="text" class="form-control" name="emailCliente" id="email" placeholder="Endereço"/>
+                        </div>
+            <input type="submit" name="cadastrarCliente" value="Cadastrar Cliente" class="btn btn-primary"/>
 
             <h1 style="color: blue"> <%=msg%></h1>
             <h1 style="color: red"> <%=erro%></h1>
-
+                
         </form>
 
         <h3>Clientes Cadastrados</h3>
