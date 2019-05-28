@@ -26,6 +26,17 @@
             erro = ex.getMessage();
         }
     }
+    if(request.getParameter("deleteProduto")!= null){
+        try {
+            erro = "";
+            msg = "Produto deletado com sucesso";
+            int id = Integer.parseInt(request.getParameter("id"));
+            Produto.deleteProduto(id);
+        } catch (Exception ex) {
+            msg = "";
+            erro = ex.getMessage();
+        }
+    }
 %>
 <html>
     <head>
@@ -71,7 +82,7 @@
                 <td>
                     <form>
                         <input type="hidden" name="id" value="<%=c.getCd_produto()%>" />
-                        <input type="submit" name="deleteCliente" value="Deletar"/>
+                        <input type="submit" name="deleteProduto" value="Deletar"/>
                     </form>
                 </td>
             </tr>
