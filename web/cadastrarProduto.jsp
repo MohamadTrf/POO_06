@@ -115,7 +115,7 @@
                             <input type="hidden" name="valorCustoAlter" value="<%=c.getVl_custo()%>" />
                             <input type="hidden" name="valorVendaAlter" value="<%=c.getVl_venda()%>" />
                             <input type="hidden" name="idFornecedorAlter" value="<%=c.getPk_fornecedor()%>" />
-                            <input type="hidden" name="idF" value="<%=c.getCd_produto()%>"/>
+                            <input type="hidden" name="idP" value="<%=c.getCd_produto()%>"/>
                             <input type="submit" name="alterarProduto" value="Alterar"/>
                         </form>
                 </td>
