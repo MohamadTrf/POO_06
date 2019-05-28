@@ -31,6 +31,7 @@
 <%
     String erro = "";
     String msg = "";
+    
     if (request.getParameter("cadastrarCliente") != null) {
         String nome = request.getParameter("nomeCliente");
         String endereco = request.getParameter("enderecoCliente");
