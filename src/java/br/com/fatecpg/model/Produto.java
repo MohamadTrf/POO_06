@@ -29,7 +29,7 @@ public class Produto {
     public static Produto getProdutoByID(int id) throws Exception {
         String SQL = "SELECT * FROM produto WHERE cd_produto = ?";
         Object parameters[] = {id};
-        
+
         ArrayList<Object[]> list = ConnectionManager.responseQuery(SQL, parameters);
 
         if (list.isEmpty()) {
@@ -47,6 +47,28 @@ public class Produto {
 
             return prod;
         }
+    }
+
+    public static ArrayList<Produto> getProdutos() throws Exception {
+        String SQL = "SELECT * FROM produto";
+        ArrayList<Produto> produtos = new ArrayList<>();
+        ArrayList<Object[]> list = ConnectionManager.responseQuery(SQL, new Object[]{});
+
+        for (int i = 0; i < list.size(); i++) {
+            Object row[] = list.get(i);
+
+            Produto p = new Produto(
+                    (int) row[0],
+                    (String) row[1],
+                    (int) row[2],
+                    (double) row[3],
+                    (double) row[4],
+                    (int) row[5]);
+
+            produtos.add(p);
+        }
+
+        return produtos;
     }
 
     public static void addProduto(String nm_produto, int qt_produto, double vl_custo, double vl_venda, int pk_fornecedor) throws Exception {

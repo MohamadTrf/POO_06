@@ -31,7 +31,8 @@ public class Cliente {
         for (int i = 0; i < list.size(); i++) {
             Object row[] = list.get(i);
 
-            Cliente c = new Cliente((int) row[0],
+            Cliente c = new Cliente(
+                    (int) row[0],
                     (String) row[1],
                     (String) row[2],
                     (String) row[3],
@@ -52,10 +53,10 @@ public class Cliente {
         Object parameters[] = {nm_cliente, nm_endereco, cd_cpf, nm_email};
         ConnectionManager.executeQuery(SQL, parameters);
     }
-    
-    public static void deleteCliente(int cd_cliente) throws Exception{
+
+    public static void deleteCliente(int cd_cliente) throws Exception {
         String SQL = "DELETE FROM CLIENTE WHERE cd_cliente= ?";
-        Object parameters [] = {cd_cliente};
+        Object parameters[] = {cd_cliente};
         ConnectionManager.executeQuery(SQL, parameters);
     }
 
