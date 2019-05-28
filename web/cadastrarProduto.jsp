@@ -42,6 +42,8 @@
             erro = ex.getMessage();
         }
     }
+    
+    
     if(request.getParameter("deleteProduto")!= null){
         try {
             erro = "";
@@ -76,12 +78,11 @@
                 <input type="text" class="form-control" name="valorProduto" id="email" placeholder="Valor"/>
                   </div>
            <input type="submit" name="cadastraProduto" value="Cadastrar Produto" class="btn btn-primary" id="botao2"/>
-            
-            <%for(Fornecedor f: Fornecedor.getFornecedores()){%>
-                <select name="fornecedorProduto"/> 
-                <option value="<%=f.getCd_fornecedor()%>"><%=f.getNm_fornecedor()%> </option> 
-                </select>
-            <%}%>
+             <select name="fornecedorProduto"/> 
+                <%for(Fornecedor f: Fornecedor.getFornecedores()){%>  
+                    <option value="<%=f.getCd_fornecedor()%>"><%=f.getNm_fornecedor()%> </option> 
+                <%}%>
+            </select>
             <h1 style="color: blue"> <%=msg%></h1>
             <h1 style="color: red"> <%=erro%></h1>
 
@@ -98,16 +99,25 @@
             </tr>
             <% for (Produto c : Produto.getProdutos()) {%>
             <tr>
-                <td><%=c.getNm_produto()%></td>
-                <td><%=c.getQt_produto()%></td>
-                <td><%=c.getVl_custo()%></td>
-                <td><%=c.getVl_venda()%></td>
-                <td><%=c.getPk_fornecedor()%></td>
+                <td name="nomeProduto"><%=c.getNm_produto()%></td>
+                <td name="qtProduto"><%=c.getQt_produto()%></td>
+                <td name="valorCusto"><%=c.getVl_custo()%></td>
+                <td name="valorVenda"><%=c.getVl_venda()%></td>
+                <td name="idFornecedor"><%=c.getPk_fornecedor()%></td>
                 <td>
                     <form>
                         <input type="hidden" name="id" value="<%=c.getCd_produto()%>" />
                         <input type="submit" name="deleteProduto" value="Deletar"/>
                     </form>
+                        <form action="produto/alterProduct.jsp">
+                            <input type="hidden" name="nomeProdutoAlter" value="<%=c.getNm_produto()%>" />
+                            <input type="hidden" name="qtdProdutoAlter" value="<%=c.getQt_produto()%>" />
+                            <input type="hidden" name="valorCustoAlter" value="<%=c.getVl_custo()%>" />
+                            <input type="hidden" name="valorVendaAlter" value="<%=c.getVl_venda()%>" />
+                            <input type="hidden" name="idFornecedorAlter" value="<%=c.getPk_fornecedor()%>" />
+                            <input type="hidden" name="idF" value="<%=c.getCd_produto()%>"/>
+                            <input type="submit" name="alterarProduto" value="Alterar"/>
+                        </form>
                 </td>
             </tr>
             <%}%>
