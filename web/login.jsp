@@ -35,10 +35,10 @@ Author     : MohamadTarif
 
     <body>
 
-        <div class="card" style="width: 18rem;">
+        <div class="card mr-auto ml-auto" style="width: 18rem; text-align: center">
             <div class="card-body">
                 <h5 class="card-title">Login</h5>
-                <h6 class="card-subtitle mb-2 text-muted"><%=error%></h6>
+                <h6 class="card-subtitle mb-2" style="color: firebrick"><%=error%></h6>
 
                 <form method="post">
                     <div class="form-group">

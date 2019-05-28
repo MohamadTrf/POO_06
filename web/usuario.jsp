@@ -20,7 +20,7 @@
     </head>
     <body>
 
-        <div class="card cardCenter mr-auto ml-auto" style="width: 18rem; text-align: center;">
+        <div class="card mr-auto ml-auto" style="width: 18rem; text-align: center;">
             <div class="card-body">
                 <h5 class="card-title">Perfil</h5>
                 <h6 class="card-subtitle mb-2" style="color: firebrick"><%=error%></h6>
