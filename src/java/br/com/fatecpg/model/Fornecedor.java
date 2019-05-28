@@ -38,7 +38,27 @@ public class Fornecedor {
             return fornecedor;
         }
     }
+    
+     public static ArrayList<Fornecedor> getFornecedores() throws Exception {
+        String SQL = "SELECT * FROM fornecedor";
+        ArrayList<Fornecedor> fornecedores = new ArrayList<>();
+        ArrayList<Object[]> list = ConnectionManager.responseQuery(SQL, new Object[]{});
 
+        for (int i = 0; i < list.size(); i++) {
+            Object row[] = list.get(i);
+
+            Fornecedor f = new Fornecedor(
+                    (int) row[0],
+                    (String) row[1],
+                    (String) row[2]);
+
+            fornecedores.add(f);
+        }
+
+        return fornecedores;
+    }
+
+    
     public static void addFornecedor(String nm_fornecedor, String nm_endereco) throws Exception {
         String SQL = "INSERT INTO fornecedor (nm_produto, endereco) "
                 + "VALUES (?, ?)";
