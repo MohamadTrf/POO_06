@@ -20,9 +20,9 @@
     }
     #botao2 {
         margin-left: 40%;
-         width: 20%;
+        width: 20%;
     }
-    
+
 </style>
 
 <%
@@ -45,6 +45,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Fornecedor</title>
+        <%@include file="../WEB-INF/jspf/header.jspf" %>
     </head>
     <!--Nome e Endereço-->
     <body>
@@ -56,17 +57,19 @@
 
         <form>
             <div class="form-group">
-             <input type="text" class="form-control" name="nomeFornecedor" id="nome" placeholder="Nome"/>
-                 </div>
+                <input type="text" class="form-control" name="nomeFornecedor" id="nome" placeholder="Nome"/>
+            </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="enderecoFornecedor" id="end" placeholder="Endereço"/>
-                  </div>
+                <input type="text" class="form-control" name="enderecoFornecedor" id="end" placeholder="Endereço"/>
+            </div>
             <input type="submit" name="btnCadastro" value="Cadastrar" class="btn btn-primary" id="botao2"/>
 
             <h1 style="color: blue"> <%=msg%></h1>
             <h1 style="color: red"> <%=erro%></h1>
         </form>
-     
+
         <%}%>
+
+        <%@include file="../WEB-INF/jspf/footer.jspf" %>
     </body>
 </html>
