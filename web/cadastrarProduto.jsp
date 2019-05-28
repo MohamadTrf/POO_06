@@ -30,12 +30,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <%@include file="WEB-INF/jspf/header.jspf" %>
     </head>
     <body>
-        <%if (session.getAttribute("user") == null) {%>
-        <h2>Você não está autenticado para acessar este recurso</h2>
-        <a href="login.jsp">Clique aqui para Voltar </a> 
-        <%} else {%>
+
         <h1>Cadastro de Produtos!</h1>
         <form>
             Nome: <input type="text" name="nomeProduto"/>
@@ -43,11 +41,14 @@
             Custo:<input type="text" name="custoProduto"/>
             Valor:<input type="email" name="valorProduto"/>
             Fornecedor (id):<input type="email" name="fornecedorProduto"/>
+
             <input type="submit" name="cadastraProduto" value="Cadastrar Produto"/>
+
             <h1 style="color: blue"> <%=msg%></h1>
             <h1 style="color: red"> <%=erro%></h1>
-            <a href="login.jsp">Voltar </a>     
+
         </form>
+
         <h3>Produtos Cadastrados</h3>
         <table border="1">
             <tr>
@@ -73,6 +74,7 @@
             </tr>
             <%}%>
         </table>
-        <%}%>
+
+        <%@include file="WEB-INF/jspf/footer.jspf" %>
     </body>
 </html>
