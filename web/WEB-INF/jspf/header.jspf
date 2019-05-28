@@ -98,6 +98,10 @@
 <a href="<%=path%>gerente/cadastrarUsuario.jsp"> Cadastrar Novo Usuário</a>
 <%}%>
 
+<%if (user.getNm_cargo().equals("Supervisor") || user.getNm_cargo().equals("Gerente")){%>
+<a href="<%=path%>fornecedor/cadastrarFornecedor.jsp">Cadastrar Fornecedor</a>
+<%}%>
+
 <%if (user.getNm_cargo().equals("Supervisor") || user.getNm_cargo().equals("Vendedor")) {%>
 <a href="<%=path%>supervisor/vendedor/cadastrarPonto.jsp"> Cadastrar Ponto </a>
 <%}%>
