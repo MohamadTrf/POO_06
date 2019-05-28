@@ -8,7 +8,7 @@
     <a class="navbar-brand" href="home.jsp">P O O</a>
 </nav>
     
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegaï¿½ï¿½o">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -27,8 +27,10 @@
                 <a class="nav-link" href="cadastrarPedido.jsp">Pedido</a>
             </li>
         </ul>
+
         <form action="logout.jsp" class="form-inline my-2 my-lg-0">
-            <button class="btn btn-secondary" type="submit">Sair</button>
+            <a class="nav-link" href="usuario.jsp">Perfil</a>
+            <button class="btn btn-sm btn-outline-secondary" type="submit">Sair</button>
         </form>
     </div>
 </nav>

@@ -32,6 +32,7 @@ Author     : MohamadTarif
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
     </head>
+
     <body>
 
         <div class="card" style="width: 18rem;">
@@ -55,6 +56,5 @@ Author     : MohamadTarif
 
 
         <%@include file="WEB-INF/jspf/footer.jspf" %>
-
     </body>
 </html>
