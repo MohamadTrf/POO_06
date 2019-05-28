@@ -81,7 +81,7 @@
             <h1 style="red"> <%=erro%></h1>
             <input type="submit" name="cadastrarUser" value="Cadastrar Usuario"/>
         </form>
-            <a href="../login.jsp">Voltar</a>
+            <a href="../home.jsp">Voltar</a>
             <table border="1">
                 <tr>
                     <th>Nome</th>
