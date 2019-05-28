@@ -8,6 +8,22 @@
 <%@page import="br.com.fatecpg.model.Produto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<style>
+    .form-group {
+        width: 20%;
+        margin-top: 2%;
+        margin-left: 40%;
+    }
+    #botao2 {
+        margin-left: 40%;
+         width: 20%;
+    }
+    
+</style>
+
+
+
 <%
     String erro = "";
     String msg = "";
@@ -46,13 +62,22 @@
     </head>
     <body>
 
-        <h1>Cadastro de Produtos!</h1>
         <form>
-            Nome: <input type="text" name="nomeProduto"/>
-            Quantidade: <input type="text" name="quantidadeProduto"/>
-            Custo:<input type="text" name="custoProduto"/>
-            Valor:<input type="text" name="valorProduto"/>
-            <input type="submit" name="cadastraProduto" value="Cadastrar Produto"/>
+
+              <div class="form-group">
+             <input type="text" class="form-control" name="nomeProduto" id="nome" placeholder="Nome"/>
+                 </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="quantidadeProduto" id="end" placeholder="Quantidade"/>
+                  </div>
+             <div class="form-group">
+              <input type="text" class="form-control" name="custoProduto" id="cpf" placeholder="Custo"/>
+               </div>
+                 <div class="form-group">
+                <input type="text" class="form-control" name="valorProduto" id="email" placeholder="Valor"/>
+                  </div>
+           <input type="submit" name="cadastraProduto" value="Cadastrar Produto" class="btn btn-primary" id="botao2"/>
+            
             <%for(Fornecedor f: Fornecedor.getFornecedores()){%>
                 <select name="fornecedorProduto"/> 
                 <option value="<%=f.getCd_fornecedor()%>"><%=f.getNm_fornecedor()%> </option> 
