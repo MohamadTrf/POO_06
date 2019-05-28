@@ -63,7 +63,6 @@
     <body>
 
         <form>
-
               <div class="form-group">
              <input type="text" class="form-control" name="nomeProduto" id="nome" placeholder="Nome"/>
                  </div>
