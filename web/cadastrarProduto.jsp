@@ -36,7 +36,7 @@
         <h2>Você não está autenticado para acessar este recurso</h2>
         <a href="login.jsp">Clique aqui para Voltar </a> 
         <%} else {%>
-        <h1>Cadastro de Clientes!</h1>
+        <h1>Cadastro de Produtos!</h1>
         <form>
             Nome: <input type="text" name="nomeProduto"/>
             Quantidade: <input type="text" name="quantidadeProduto"/>
