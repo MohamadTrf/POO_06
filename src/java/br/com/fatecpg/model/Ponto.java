@@ -6,7 +6,6 @@
 package br.com.fatecpg.model;
 
 import br.com.fatecpg.config.ConnectionManager;
-import java.sql.Time;
 import java.util.Date;
 
 /**
@@ -14,6 +13,7 @@ import java.util.Date;
  * @author MohamadTarif
  */
 public class Ponto {
+
     private int cd_ponto;
     private Date dt_ponto;
     private Date hora_entrada;
@@ -28,23 +28,18 @@ public class Ponto {
         this.cd_usuario = cd_usuario;
     }
 
-    public static void addPonto(Date dt_ponto,Date hora_entrada, Date hora_saida, int cd_usuario) throws Exception{
+    public static void addPonto(Date dt_ponto, Date hora_entrada, Date hora_saida, int cd_usuario) throws Exception {
         String SQL = "INSERT INTO PONTO(dt_ponto,hr_entrada,hr_saida,cd_usuario) VALUES("
-                    +"?"
-                    +",?"
-                    +",?"
-                    +",?"
-                    +")";
-        
-        Object parameters[] = {dt_ponto,hora_entrada,hora_saida,cd_usuario};
-        ConnectionManager.executeQuery(SQL, parameters);               
+                + "?"
+                + ",?"
+                + ",?"
+                + ",?"
+                + ")";
+
+        Object parameters[] = {dt_ponto, hora_entrada, hora_saida, cd_usuario};
+        ConnectionManager.executeQuery(SQL, parameters);
     }
-    
-    
-    
-    
-    
-    
+
     public int getCd_ponto() {
         return cd_ponto;
     }
