@@ -26,8 +26,10 @@
             err = "Escolha um nivel de permissão!";
         } else {
             err = "";
-            user.alterUsuario(nome, cargo, permissao, id);
+            user = user.alterUsuario(nome, cargo, permissao, id);
             succ = "Alterações realizadas com sucesso";
+            session.removeAttribute("user");
+            session.setAttribute("user", user);
         }
     }
 

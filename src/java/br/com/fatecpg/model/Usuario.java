@@ -29,17 +29,34 @@ public class Usuario {
 
         ArrayList<Object[]> list = ConnectionManager.responseQuery(SQL, new Object[]{});
 
-        for (Object[] row : list) {
+        list.stream().map((row) -> new Usuario((int) row[0],
+                (String) row[1],
+                (String) row[2],
+                (String) row[3],
+                (int) row[4]
+        )).forEachOrdered((u) -> {
+            usuarios.add(u);
+        });
+        return usuarios;
+    }
+
+    public static Usuario getUserByID(int id) throws Exception {
+        String SQL = "SELECT * FROM USUARIO WHERE cd_usuario = ? ";
+        Object parameters[] = {id};
+        ArrayList<Object[]> list = ConnectionManager.responseQuery(SQL, parameters);
+
+        if (list.isEmpty()) {
+            return null;
+        } else {
+            Object row[] = list.get(0);
             Usuario u = new Usuario((int) row[0],
                     (String) row[1],
                     (String) row[2],
                     (String) row[3],
-                    (int) row[4]
-            );
+                    (int) row[4]);
 
-            usuarios.add(u);
+            return u;
         }
-        return usuarios;
     }
 
     public static Usuario getUser(String nm_user, String nm_senha) throws Exception {
@@ -61,10 +78,11 @@ public class Usuario {
         }
     }
 
-    public static void alterUsuario(String nome, String cargo, int permissao, int id) throws Exception {
+    public static Usuario alterUsuario(String nome, String cargo, int permissao, int id) throws Exception {
         String SQL = "UPDATE usuario SET nm_usuario = ?, nm_cargo = ?, cd_nivel_permissao = ? WHERE cd_usuario = ?";
         Object parameters[] = {nome, cargo, permissao, id};
         ConnectionManager.executeQuery(SQL, parameters);
+        return Usuario.getUserByID(id);
     }
 
     public static void deleteUsuario(int cd_user) throws Exception {
