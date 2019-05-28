@@ -4,6 +4,7 @@
     Author     : Mulero
 --%>
 
+<%@page import="br.com.fatecpg.model.Fornecedor"%>
 <%@page import="br.com.fatecpg.model.Produto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,7 +16,7 @@
         String nome = request.getParameter("nomeProduto");
         int quantidade = Integer.parseInt(request.getParameter("quantidadeProduto"));
         double custo = Double.parseDouble(request.getParameter("custoProduto"));
-        double venda = Double.parseDouble(request.getParameter("vendaProduto"));
+        double venda = Double.parseDouble(request.getParameter("valorProduto"));
         int fornecedor = Integer.parseInt(request.getParameter("fornecedorProduto"));
 
         try {
@@ -29,7 +30,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Cadastrar Produto</title>
         <%@include file="WEB-INF/jspf/header.jspf" %>
     </head>
     <body>
@@ -39,11 +40,13 @@
             Nome: <input type="text" name="nomeProduto"/>
             Quantidade: <input type="text" name="quantidadeProduto"/>
             Custo:<input type="text" name="custoProduto"/>
-            Valor:<input type="email" name="valorProduto"/>
-            Fornecedor (id):<input type="email" name="fornecedorProduto"/>
-
+            Valor:<input type="text" name="valorProduto"/>
             <input type="submit" name="cadastraProduto" value="Cadastrar Produto"/>
-
+            <%for(Fornecedor f: Fornecedor.getFornecedores()){%>
+                <select name="fornecedorProduto"/> 
+                <option value="<%=f.getCd_fornecedor()%>"><%=f.getNm_fornecedor()%> </option> 
+                </select>
+            <%}%>
             <h1 style="color: blue"> <%=msg%></h1>
             <h1 style="color: red"> <%=erro%></h1>
 
