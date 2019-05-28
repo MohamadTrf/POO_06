@@ -49,6 +49,13 @@ public class Produto {
         }
     }
     
+    public static void alterProduto(String nm_produto, int qt_produto, double vl_custo, double vl_venda,int cd_fornecedor,int cd_produto) throws Exception {
+        String SQL = "UPDATE produto SET nm_produto = ?, qt_produto = ?, vl_custo= ? vl_venda=?,cd_fornecedor?, WHERE cd_produto = ?";
+        Object parameters[] = {nm_produto, qt_produto, vl_custo, vl_venda,cd_fornecedor,cd_produto};
+        ConnectionManager.executeQuery(SQL, parameters);
+    }
+
+    
     public static void deleteProduto(int cd_produto) throws Exception {
         String SQL = "DELETE FROM PRODUTO WHERE cd_produto= ?";
         Object parameters[] = {cd_produto};
