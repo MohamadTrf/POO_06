@@ -22,26 +22,26 @@ public class Usuario {
         this.nm_cargo = nm_cargo;
         this.cd_nivel_permissao = cd_nivel_permissao;
     }
-    
-    public static ArrayList<Usuario> getUsers () throws Exception{
+
+    public static ArrayList<Usuario> getUsers() throws Exception {
         String SQL = "SELECT * FROM USUARIO";
         ArrayList<Usuario> usuarios = new ArrayList<>();
-        
+
         ArrayList<Object[]> list = ConnectionManager.responseQuery(SQL, new Object[]{});
-            
+
         for (Object[] row : list) {
-            Usuario u = new Usuario((int)row[0]
-                    ,(String)row[1]
-                    ,(String)row[2]
-                    ,(String)row[3]
-                    ,(int)row[4]
+            Usuario u = new Usuario((int) row[0],
+                    (String) row[1],
+                    (String) row[2],
+                    (String) row[3],
+                    (int) row[4]
             );
-            
+
             usuarios.add(u);
         }
         return usuarios;
     }
-    
+
     public static Usuario getUser(String nm_user, String nm_senha) throws Exception {
         String SQL = "SELECT * FROM USUARIO WHERE nm_usuario = ? AND nm_senha = ?";
         Object parameters[] = {nm_user, nm_senha};
@@ -62,13 +62,12 @@ public class Usuario {
 
     }
 
-    
-    public static void deleteUsuario(int cd_user) throws Exception{
+    public static void deleteUsuario(int cd_user) throws Exception {
         String SQL = "DELETE FROM USUARIO WHERE cd_usuario= ?";
-        Object parameters [] = {cd_user};
+        Object parameters[] = {cd_user};
         ConnectionManager.executeQuery(SQL, parameters);
     }
-    
+
     public static void addUser(String nm_user, String nm_senha, String nm_cargo, int cd_nivel_permissao) throws Exception {
         String SQL = "INSERT INTO USUARIO (nm_usuario,nm_senha,nm_cargo,cd_nivel_permissao)VALUES("
                 + "?"
