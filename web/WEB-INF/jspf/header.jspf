@@ -3,10 +3,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+<style>
+    #exit {
+        margin-left: 2150%;
+    }
+</style>
+
+
+
 <nav class="navbar navbar-dark bg-primary">
 <nav class="navbar navbar-expand-lg ">
     <a class="navbar-brand" href="home.jsp">P O O</a>
-</nav>
+
     
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
@@ -28,7 +36,8 @@
             </li>
         </ul>
         <form action="logout.jsp" class="form-inline my-2 my-lg-0">
-            <button class="btn btn-secondary" type="submit">Sair</button>
+            <button class="btn btn-sm btn-outline-secondary" type="submit" id="exit">Sair</button>
         </form>
     </div>
+</nav>
 </nav>
