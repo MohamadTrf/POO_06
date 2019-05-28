@@ -31,7 +31,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title " id="exampleModalCenterTitle">
-                                <a class="color-modal" href="" target="_blank">Repositório do Projeto</a>
+                                <a class="color-modal" href="" target="_blank">Repositï¿½rio do Projeto</a>
                             </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -42,7 +42,7 @@
                                 <a href="https://github.com/danielrares1" target="_blank">Daniel Rares</a><br>
                                 <a href="https://github.com/muleroD" target="_blank">Richard Mulero</a><br>
                                 <a href="https://github.com/MohamadTarif" target="_blank">Mohamad Tarif</a><br>
-                                <a href="https://github.com/allanjose" target="_blank">Allan José</a><br>
+                                <a href="https://github.com/allanjose" target="_blank">Allan Josï¿½</a><br>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -54,4 +54,3 @@
         </div>
     </div>
 </footer>
-
