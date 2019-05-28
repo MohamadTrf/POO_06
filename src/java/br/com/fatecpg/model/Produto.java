@@ -48,6 +48,12 @@ public class Produto {
             return prod;
         }
     }
+    
+    public static void deleteProduto(int cd_produto) throws Exception {
+        String SQL = "DELETE FROM PRODUTO WHERE cd_produto= ?";
+        Object parameters[] = {cd_produto};
+        ConnectionManager.executeQuery(SQL, parameters);
+    }
 
     public static ArrayList<Produto> getProdutos() throws Exception {
         String SQL = "SELECT * FROM produto";
