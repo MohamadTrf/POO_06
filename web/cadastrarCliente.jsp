@@ -7,6 +7,27 @@
 <%@page import="br.com.fatecpg.model.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<style>
+     .form-group {
+        width: 20%;
+        margin-top: 2%;
+        margin-left: 40%;
+    }
+    end {
+        
+    }
+    cpf {
+        
+    }
+    #botao1 {
+        margin-left: 40%;
+         width: 20%;
+        
+    }
+</style>
+
+
 <%
     String erro = "";
     String msg = "";
@@ -46,7 +67,6 @@
     </head>
 
     <body>
-        <h1>Cadastro de Clientes!</h1>
 
         <form>
              <div class="form-group">
@@ -61,7 +81,7 @@
                  <div class="form-group">
                 <input type="text" class="form-control" name="emailCliente" id="email" placeholder="Endereço"/>
                         </div>
-            <input type="submit" name="cadastrarCliente" value="Cadastrar Cliente" class="btn btn-primary"/>
+            <input type="submit" name="cadastrarCliente" value="Cadastrar Cliente" class="btn btn-primary" id="botao1"/>
 
             <h1 style="color: blue"> <%=msg%></h1>
             <h1 style="color: red"> <%=erro%></h1>
