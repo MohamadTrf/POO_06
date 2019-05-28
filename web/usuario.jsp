@@ -32,7 +32,8 @@
     }
 
     if (request.getParameter("btnDelete") != null) {
-
+        int id = Integer.parseInt(request.getParameter("txtID"));
+        user.deleteUsuario(id);
     }
 
 %>
