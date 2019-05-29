@@ -11,16 +11,10 @@
     String erro = "";
     String msg = "";
 
-    if (request.getParameter("deletePonto") != null) {
-        try {
-            erro = "";
-            msg = "Ponto deletado com sucesso";
-            int id = Integer.parseInt(request.getParameter("id"));
-            Ponto.deletePonto(id);
-        } catch (Exception ex) {
-            msg = "";
-            erro = ex.getMessage();
-        }
+    int id = 0;
+
+    if (request.getParameter("id") != null) {
+        id = Integer.parseInt(request.getParameter("id"));
     }
 %>
 
@@ -43,9 +37,8 @@
                 <th>Hora de Saída</th>
                 <th>Usuário</th>
                 <th>Apagar ponto</th>
-                <th>Ver Pontos</th>
             </tr>
-            <% for (Ponto p : Ponto.getPontosAll()) {%>
+            <% for (Ponto p : Ponto.getPontosByUserId(id)) {%>
             <tr>
                 <td name="dataPonto"><%=p.getDt_ponto()%></td>
                 <td name="hrEntrada"><%=p.getHora_entrada()%></td>
@@ -55,12 +48,6 @@
                     <form>
                         <input type="hidden" name="id" value="<%=p.getCd_ponto()%>" />
                         <input type="submit" name="deletePonto" value="Deletar"/>
-                    </form>
-                </td>
-                <td>
-                    <form action="usuarioPonto.jsp">
-                        <input type="hidden" name="id" value="<%=p.getCd_ponto()%>" />
-                        <input type="submit" name="viewPonto" value="Visualizar"/>
                     </form>
                 </td>
             </tr>

@@ -6,6 +6,7 @@
 package br.com.fatecpg.model;
 
 import br.com.fatecpg.config.ConnectionManager;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -38,6 +39,54 @@ public class Ponto {
 
         Object parameters[] = {dt_ponto, hora_entrada, hora_saida, cd_usuario};
         ConnectionManager.executeQuery(SQL, parameters);
+    }
+
+    public static void deletePonto(int id) throws Exception {
+        String SQL = "DELETE FROM ponto WHERE cd_ponto = ?";
+        Object parameters[] = {id};
+        ConnectionManager.executeQuery(SQL, parameters);
+    }
+
+    public static ArrayList<Ponto> getPontosAll() throws Exception {
+        String SQL = "SELECT * FROM ponto";
+        ArrayList<Ponto> pontos = new ArrayList<>();
+        ArrayList<Object[]> list = ConnectionManager.responseQuery(SQL, new Object[]{});
+
+        for (int i = 0; i < list.size(); i++) {
+            Object row[] = list.get(i);
+
+            Ponto p = new Ponto(
+                    (int) row[0],
+                    (Date) row[1],
+                    (Date) row[2],
+                    (Date) row[3],
+                    (int) row[4]);
+            pontos.add(p);
+        }
+
+        return pontos;
+    }
+
+    public static ArrayList<Ponto> getPontosByUserId(int id) throws Exception {
+
+        String SQL = "SELECT * FROM ponto where cd_usuario = ?";
+        Object parameters[] = {id};
+        ArrayList<Ponto> pontos = new ArrayList<>();
+        ArrayList<Object[]> list = ConnectionManager.responseQuery(SQL, parameters);
+
+        for (int i = 0; i < list.size(); i++) {
+            Object row[] = list.get(i);
+
+            Ponto p = new Ponto(
+                    (int) row[0],
+                    (Date) row[1],
+                    (Date) row[2],
+                    (Date) row[3],
+                    (int) row[4]);
+            pontos.add(p);
+        }
+
+        return pontos;
     }
 
     public int getCd_ponto() {

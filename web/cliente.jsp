@@ -41,7 +41,6 @@
         try {
             msg = "Cliente cadastrado com sucesso";
             Cliente.addCliente(nome, endereco, cpf, email);
-            //response.sendRedirect(request.getRequestURI());
         } catch (Exception ex) {
             erro = ex.getMessage();
         }
