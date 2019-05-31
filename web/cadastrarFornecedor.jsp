@@ -28,7 +28,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Fornecedor</title>
-        <%@include file="../WEB-INF/jspf/header.jspf" %>
 
 
         <style>
@@ -52,6 +51,7 @@
         <a href="login.jsp">Clique aqui para Voltar </a> 
         <%} else {%>
         <h1>Fornecedores</h1>
+        <%@include file="WEB-INF/jspf/header.jspf" %>
 
         <form>
             <div class="form-group">
@@ -65,9 +65,29 @@
             <h1 style="color: blue"> <%=msg%></h1>
             <h1 style="color: red"> <%=erro%></h1>
         </form>
-
+        
+         <table border="1">
+            <tr>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Deletar</th>
+            </tr>
+            <%for (Fornecedor f : Fornecedor.getFornecedores()) {%>
+            <tr>
+                <th><%=f.getNm_fornecedor()%></th>
+                <th><%=f.getNm_endereco()%></th>
+                <td>
+                    <form>
+                        <input type="hidden" name="id" value="<%=f.getCd_fornecedor()%>" />
+                        <input type="submit" name="deletarUsuario" value="Remover Usuário"/>
+                    </form>
+                </td>
+            </tr>
+            <%}%>
+        </table>
+        
         <%}%>
 
-        <%@include file="../WEB-INF/jspf/footer.jspf" %>
+        <%@include file="WEB-INF/jspf/footer.jspf" %>
     </body>
 </html>
