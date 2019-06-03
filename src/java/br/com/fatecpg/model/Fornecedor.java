@@ -57,7 +57,18 @@ public class Fornecedor {
 
         return fornecedores;
     }
-
+    
+    public static void deleteFornecedor(int cd_fornecedor) throws Exception {
+        String SQL = "DELETE  FROM FORNECEDOR WHERE cd_fornecedor= ?";
+        Object parameters[] = {cd_fornecedor};
+        ConnectionManager.executeQuery(SQL, parameters);
+    }
+    
+    public static void deleteProductByFornecedorId(int cd_fornecedor) throws Exception {
+        String SQL = "DELETE  FROM PRODUTO WHERE cd_fornecedor= ?";
+        Object parameters[] = {cd_fornecedor};
+        ConnectionManager.executeQuery(SQL, parameters);
+    }
     
     public static void addFornecedor(String nm_fornecedor, String nm_endereco) throws Exception {
         String SQL = "INSERT INTO fornecedor (nm_fornecedor, nm_endereco) "

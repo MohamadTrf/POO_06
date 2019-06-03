@@ -22,7 +22,20 @@
         }
     }
 %>
-
+<%
+    if (request.getParameter("deletarFornecedor") != null) {
+        try {
+            erro = "";
+            msg = "Fornecedor deletado com sucesso";
+            int id = Integer.parseInt(request.getParameter("id"));
+            Fornecedor.deleteProductByFornecedorId(id);
+            Fornecedor.deleteFornecedor(id);
+        } catch (Exception ex) {
+            msg = "";
+            erro = ex.getMessage();
+        }
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -79,7 +92,7 @@
                 <td>
                     <form>
                         <input type="hidden" name="id" value="<%=f.getCd_fornecedor()%>" />
-                        <input type="submit" name="deletarUsuario" value="Remover Usuário"/>
+                        <input type="submit" name="deletarFornecedor" value="Remover Usuário"/>
                     </form>
                 </td>
             </tr>

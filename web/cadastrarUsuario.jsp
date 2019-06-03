@@ -56,7 +56,7 @@
     <body>
         <%if (session.getAttribute("user") == null) {%>
         <h2>Você não está autenticado para acessar este recurso</h2>
-        <a href="../login.jsp"> Clique aqui para voltar </a>
+        <a href="login.jsp"> Clique aqui para voltar </a>
         <%} else {%>
 
         <% if (!user.getNm_cargo().equals("Gerente")) {%>
@@ -81,7 +81,7 @@
             <h1 style="red"> <%=erro%></h1>
             <input type="submit" name="cadastrarUser" value="Cadastrar Usuario"/>
         </form>
-        <a href="../home.jsp">Voltar</a>
+        <a href="home.jsp">Voltar</a>
         <table border="1">
             <tr>
                 <th>Nome</th>
