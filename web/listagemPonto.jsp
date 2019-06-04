@@ -28,11 +28,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Listagem de Ponto</title>
         <%@include file="WEB-INF/jspf/header.jspf" %>
     </head>
     <body class="text-center">
-        <h1>Gerenciamento de Pontos!</h1>
+        <h1>Gerenciamento de Pontos</h1>
 
         <br>
 
