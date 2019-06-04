@@ -43,7 +43,7 @@
                 <th>Hora de Saída</th>
                 <th>Usuário</th>
                 <th>Apagar ponto</th>
-                <th>Ver Pontos</th>
+                <th>Listar Pontos</th>
             </tr>
             <% for (Ponto p : Ponto.getPontosAll()) {%>
             <tr>
