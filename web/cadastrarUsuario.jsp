@@ -58,7 +58,7 @@
         <%@include file="WEB-INF/jspf/header.jspf" %>
 
         <style>
-               .line-vertical{ 
+            .line-vertical{ 
                 border-left: 5px solid #007bff;
             }
         </style>
@@ -76,59 +76,58 @@
         <h2 class="text-center">Você não tem permissão para acessar esse recurso</h2>
 
         <%} else {%>    
-         <div class="container">
+        <div class="container">
 
             <div class="row">
 
                 <div class="col-md-6">
-        <form>
-              <div class="form-group full" style="margin-top: 10px;">
-                <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome"/>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="senha" id="end" placeholder="Senha"/>
-            </div>
-            <div class="form-group">
-                <select name="cargo" placeholder="Cargo" class="form-control">
-                    <option value="Supervisor"> Supervisor </option>
-                    <option value="Vendedor">Vendedor</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <select name="permissao" placeholder="Código Permissão" class="form-control" >
-                    <option value="2"> 2</option>
-                    <option value="3"> 3</option>
-                </select>
-            </div>
-            <h1 style="blue"> <%=msg%></h1>
-            <h1 style="red"> <%=erro%></h1>
-            <input type="submit" name="cadastrarUser" value="Cadastrar Usuario" class="btn btn-primary"  id="botao2"/>
-        </form>
-             </div>
-                    <div class="col-md-6 line-vertical" style="margin-top: 10px;">
-                    <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Cargo</th>
-                    <th scope="col">Deletar</th>
-                </tr>
-            </thead>
-            <%for (Usuario u : Usuario.getUsers()) {%>
-            <tr>
-                <th><%=u.getNm_user()%></th>
-                <th><%=u.getNm_cargo()%></th>
-                <td>
                     <form>
-                        <input type="hidden" name="id" value="<%=u.getCd_user()%>" />
-                        <input type="submit" name="deletarUsuario" value="Remover Usuário" class="btn btn-danger"/>
+                        <div class="form-group full" style="margin-top: 10px;">
+                            <input type="text" class="form-control" name="nomeUser" id="nome" placeholder="Nome"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="senhaUser" id="end" placeholder="Senha"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="cargo"  placeholder="Cargo"/>
+                        </div>
+                        <div class="form-group">
+                            <select name="permissao" placeholder="Código Permissão" class="form-control" >
+                                <option value="0" selected>Nível de Permissão</option>
+                                <option value="1"> Gerente</option>
+                                <option value="2"> Supervisor</option>
+                                 <option value="3"> Vendedor</option>
+                            </select>
+                        </div>
+                        <h1 style="blue"> <%=msg%></h1>
+                        <h1 style="red"> <%=erro%></h1>
+                        <input type="submit" name="cadastrarUser" value="Cadastrar Usuario" class="btn btn-primary"  id="botao2"/>
                     </form>
-                </td>
-            </tr>
-            <%}%>
+                </div>
+                <div class="col-md-6 line-vertical" style="margin-top: 10px;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Cargo</th>
+                                <th scope="col">Deletar</th>
+                            </tr>
+                        </thead>
+                        <%for (Usuario u : Usuario.getUsers()) {%>
+                        <tr>
+                            <th><%=u.getNm_user()%></th>
+                            <th><%=u.getNm_cargo()%></th>
+                            <td>
+                                <form>
+                                    <input type="hidden" name="id" value="<%=u.getCd_user()%>" />
+                                    <input type="submit" name="deletarUsuario" value="Remover Usuário" class="btn btn-danger"/>
+                                </form>
+                            </td>
+                        </tr>
+                        <%}%>
 
-        </table>
-                  </div>
+                    </table>
+                </div>
 
             </div>
         </div>
@@ -136,7 +135,7 @@
 
         <%  } %>
         <%}%>
-
+        <%@include file="WEB-INF/jspf/footer.jspf" %>
     </body>
 
 </html>

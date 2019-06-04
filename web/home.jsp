@@ -76,7 +76,7 @@
                 </div>
                 <div class="col-md-3">  
                     <div class="card">
-                        <img src="https://www.pedroengler.com/wp-content/uploads/2018/08/como-deixar-o-cliente-feliz.jpg" class="card-img-top" alt="...">
+                        <img src="https://blog.acelerato.com/wp-content/uploads/2016/07/atendimento-posvenda.jpg" class="card-img-top" alt="..." style="height:138px;">
                         <div class="card-body">
                             <h5 class="card-title">Cadastrar Produto</h5>
                             <p class="card-text">Aqui você pode cadastrar o Produto</p>
@@ -99,7 +99,7 @@
                 <div class="col-md-3">
                     <%if (nivel == 1) {%>
                     <div class="card">
-                        <img src="https://blog.acelerato.com/wp-content/uploads/2016/07/atendimento-posvenda.jpg" class="card-img-top" alt="..." style="height:138px;">
+                        <img src="https://www.pedroengler.com/wp-content/uploads/2018/08/como-deixar-o-cliente-feliz.jpg" class="card-img-top" alt="..." style="height:138px;">
                         <div class="card-body">
                             <h5 class="card-title">Cadastrar Usuario</h5>
                             <p class="card-text">Aqui você pode cadastrar o Usuario</p>

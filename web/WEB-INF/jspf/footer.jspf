@@ -1,7 +1,4 @@
 <style>
-    #futtao {
-        margin-top: 24%;
-    }
 </style>
 
 <%
@@ -16,7 +13,7 @@
     }
 %>
 
-<footer class="bg-dark py-3" id="futtao">
+<footer class="bg-dark py-3" style="position: absolute; width: 100%; bottom:0; ">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 text-center text-white pb-2">
@@ -31,7 +28,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title " id="exampleModalCenterTitle">
-                                <a class="color-modal" href="" target="_blank">Repositï¿½rio do Projeto</a>
+                                <a class="color-modal" href="" target="_blank">Repositório do Projeto</a>
                             </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -42,7 +39,7 @@
                                 <a href="https://github.com/danielrares1" target="_blank">Daniel Rares</a><br>
                                 <a href="https://github.com/muleroD" target="_blank">Richard Mulero</a><br>
                                 <a href="https://github.com/MohamadTarif" target="_blank">Mohamad Tarif</a><br>
-                                <a href="https://github.com/allanjose" target="_blank">Allan Josï¿½</a><br>
+                                <a href="https://github.com/allanjose" target="_blank">Allan José</a><br>
                             </div>
                         </div>
                         <div class="modal-footer">
