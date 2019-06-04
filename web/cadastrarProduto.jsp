@@ -47,83 +47,90 @@
         <%@include file="WEB-INF/jspf/header.jspf" %>
 
         <style>
-            .form-group {
-                width: 20%;
-                margin-top: 2%;
-                margin-left: 40%;
+            .line-vertical{ 
+                border-left: 5px solid #007bff;
             }
-            #botao2 {
-                margin-left: 40%;
-                width: 20%;
+            #change {
+                margin-bottom: -15%;
             }
-
+            #delete{
+                margin-top: -20%;
+            }
         </style>
 
     </head>
     <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
 
-        <form>
-            <div class="form-group">
-                <input type="text" class="form-control" name="nomeProduto" id="nome" placeholder="Nome"/>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="quantidadeProduto" id="end" placeholder="Quantidade"/>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="custoProduto" id="cpf" placeholder="Custo"/>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="valorProduto" id="email" placeholder="Valor"/>
-            </div>
-            <input type="submit" name="cadastraProduto" value="Cadastrar Produto" class="btn btn-primary" id="botao2"/>
-            <select name="fornecedorProduto"/> 
-            <%for (Fornecedor f : Fornecedor.getFornecedores()) {%>  
-            <option value="<%=f.getCd_fornecedor()%>"><%=f.getNm_fornecedor()%> </option> 
-            <%}%>
-        </select>
-        <h1 style="color: blue"> <%=msg%></h1>
-        <h1 style="color: red"> <%=erro%></h1>
+                    <form>
+                        <div class="form-group" style="margin-top: 10px;">
+                            <input type="text" class="form-control" name="nomeProduto" id="nome" placeholder="Nome"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="quantidadeProduto" id="end" placeholder="Quantidade"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="custoProduto" id="cpf" placeholder="Custo"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="valorProduto" id="email" placeholder="Valor"/>
+                        </div>
+                        <input type="submit" name="cadastraProduto" value="Cadastrar Produto" class="btn btn-primary" id="botao2"/>
+                        <select name="fornecedorProduto"/> 
+                        <%for (Fornecedor f : Fornecedor.getFornecedores()) {%>  
+                        <option value="<%=f.getCd_fornecedor()%>"><%=f.getNm_fornecedor()%> </option> 
+                        <%}%>
+                        </select>
+                        <h1 style="color: blue"> <%=msg%></h1>
+                        <h1 style="color: red"> <%=erro%></h1>
 
-    </form>
+                    </form>
+                </div>
 
-    <h3>Produtos Cadastrados</h3>
-        <table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">Nome</th>
-      <th scope="col">Quantidade</th>
-      <th scope="col">Valor de Custo</th>
-      <th scope="col">Valor de Venda</th>
-       <th scope="col">Fornecedor</th>
-    </tr>
-  </thead>
-        <% for (Produto c : Produto.getProdutos()) {%>
-        <tr>
-            <td name="nomeProduto"><%=c.getNm_produto()%></td>
-            <td name="qtProduto"><%=c.getQt_produto()%></td>
-            <td name="valorCusto"><%=c.getVl_custo()%></td>
-            <td name="valorVenda"><%=c.getVl_venda()%></td>
-            <td name="idFornecedor"><%=c.getPk_fornecedor()%></td>
-            <td>
-                <form>
-                    <input type="hidden" name="id" value="<%=c.getCd_produto()%>" />
-                    <input type="submit" class="btn btn-primary" name="deleteProduto" value="Deletar"/>
-                </form>
-                <form action="produto/alterProduct.jsp">
-                    <input type="hidden" name="nomeProdutoAlter" value="<%=c.getNm_produto()%>" />
-                    <input type="hidden" name="qtdProdutoAlter" value="<%=c.getQt_produto()%>" />
-                    <input type="hidden" name="valorCustoAlter" value="<%=c.getVl_custo()%>" />
-                    <input type="hidden" name="valorVendaAlter" value="<%=c.getVl_venda()%>" />
-                    <input type="hidden" name="idFornecedorAlter" value="<%=c.getPk_fornecedor()%>" />
-                    <input type="hidden" name="idF" value="<%=c.getCd_produto()%>"/>
-                    <input type="submit" class="btn btn-primary" name="alterarProduto" value="Alterar"/>
-                </form>
-            </td>
-        </tr>
-        <%}%>
-    </table>
-
-    <%@include file="WEB-INF/jspf/footer.jspf" %>
-</body>
+                <div class="col-md-6 line-vertical" style="margin-top: 10px;">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Quantidade</th>
+                                <th scope="col">Valor de Custo</th>
+                                <th scope="col">Valor de Venda</th>
+                                <th scope="col">Fornecedor</th>
+                                <th scope="col">Opcões</th>
+                                
+                            </tr>
+                        </thead>
+                        <% for (Produto c : Produto.getProdutos()) {%>
+                        <tr>
+                            <td name="nomeProduto"><%=c.getNm_produto()%></td>
+                            <td name="qtProduto"><%=c.getQt_produto()%></td>
+                            <td name="valorCusto"><%=c.getVl_custo()%></td>
+                            <td name="valorVenda"><%=c.getVl_venda()%></td>
+                            <td name="idFornecedor"><%=c.getPk_fornecedor()%></td>
+                            <td>
+                                <form>
+                                    <input type="hidden" name="id" value="<%=c.getCd_produto()%>" />
+                                    <input type="submit" class="btn btn-primary" name="deleteProduto" value="Deletar" id="delete"/>
+                                </form>
+                                <form action="produto/alterProduct.jsp">
+                                    <input type="hidden" name="nomeProdutoAlter" value="<%=c.getNm_produto()%>" />
+                                    <input type="hidden" name="qtdProdutoAlter" value="<%=c.getQt_produto()%>" />
+                                    <input type="hidden" name="valorCustoAlter" value="<%=c.getVl_custo()%>" />
+                                    <input type="hidden" name="valorVendaAlter" value="<%=c.getVl_venda()%>" />
+                                    <input type="hidden" name="idFornecedorAlter" value="<%=c.getPk_fornecedor()%>" />
+                                    <input type="hidden" name="idF" value="<%=c.getCd_produto()%>"/>
+                                    <input type="submit" class="btn btn-primary" name="alterarProduto" value="Alterar" id="change"/>
+                                </form>
+                            </td>
+                        </tr>
+                        <%}%>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <%@include file="WEB-INF/jspf/footer.jspf" %>
+    </body>
 
 </html>
