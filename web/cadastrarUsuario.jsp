@@ -58,16 +58,9 @@
         <%@include file="WEB-INF/jspf/header.jspf" %>
 
         <style>
-            .form-group {
-                width: 20%;
-                margin-top: 2%;
-                margin-left: 40%;
+               .line-vertical{ 
+                border-left: 5px solid #007bff;
             }
-            #botao2 {
-                margin-left: 40%;
-                width: 20%;
-            }
-
         </style>
 
 
@@ -82,10 +75,14 @@
         <br>
         <h2 class="text-center">Você não tem permissão para acessar esse recurso</h2>
 
-        <%} else {%>
-        <h1>Cadastre os Funcionários que você deseja que utilize o Software senhor <%=user.getNm_user()%>!</h1>
+        <%} else {%>    
+         <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-6">
         <form>
-            <div class="form-group">
+              <div class="form-group full" style="margin-top: 10px;">
                 <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome"/>
             </div>
             <div class="form-group">
@@ -107,8 +104,9 @@
             <h1 style="red"> <%=erro%></h1>
             <input type="submit" name="cadastrarUser" value="Cadastrar Usuario" class="btn btn-primary"  id="botao2"/>
         </form>
-
-        <table class="table">
+             </div>
+                    <div class="col-md-6 line-vertical" style="margin-top: 10px;">
+                    <table class="table">
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
@@ -123,13 +121,18 @@
                 <td>
                     <form>
                         <input type="hidden" name="id" value="<%=u.getCd_user()%>" />
-                        <input type="submit" name="deletarUsuario" value="Remover Usuário"/>
+                        <input type="submit" name="deletarUsuario" value="Remover Usuário" class="btn btn-danger"/>
                     </form>
                 </td>
             </tr>
             <%}%>
 
         </table>
+                  </div>
+
+            </div>
+        </div>
+
 
         <%  } %>
         <%}%>
