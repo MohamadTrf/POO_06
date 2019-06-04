@@ -118,13 +118,13 @@
                                     <input type="hidden" name="id" value="<%=c.getCd_produto()%>" />
                                     <input type="submit" class="btn btn-danger" name="deleteProduto" value="Deletar" id="delete"/>
                                 </form>
-                                <form action="produto/alterProduct.jsp">
+                                <form action="alterProduct.jsp" method="post">
                                     <input type="hidden" name="nomeProdutoAlter" value="<%=c.getNm_produto()%>" />
                                     <input type="hidden" name="qtdProdutoAlter" value="<%=c.getQt_produto()%>" />
                                     <input type="hidden" name="valorCustoAlter" value="<%=c.getVl_custo()%>" />
                                     <input type="hidden" name="valorVendaAlter" value="<%=c.getVl_venda()%>" />
                                     <input type="hidden" name="idFornecedorAlter" value="<%=c.getPk_fornecedor()%>" />
-                                    <input type="hidden" name="idF" value="<%=c.getCd_produto()%>"/>
+                                    <input type="hidden" name="idP" value="<%=c.getCd_produto()%>"/>
                                     <input type="submit" class="btn btn-primary" name="alterarProduto" value="Alterar" id="change"/>
                                 </form>
                             </td>
