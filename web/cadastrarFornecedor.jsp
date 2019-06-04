@@ -44,16 +44,9 @@
 
 
         <style>
-            .form-group {
-                width: 20%;
-                margin-top: 2%;
-                margin-left: 40%;
+                .line-vertical{ 
+                border-left: 5px solid #007bff;
             }
-            #botao2 {
-                margin-left: 40%;
-                width: 20%;
-            }
-
         </style>
 
     </head>
@@ -64,42 +57,49 @@
         <a href="login.jsp">Clique aqui para Voltar </a> 
         <%} else {%>
         <%@include file="WEB-INF/jspf/header.jspf" %>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
 
-        <form>
-            <div class="form-group">
-                <input type="text" class="form-control" name="nomeFornecedor" id="nome" placeholder="Nome"/>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="enderecoFornecedor" id="end" placeholder="Endereço"/>
-            </div>
-            <input type="submit" name="btnCadastro" value="Cadastrar" class="btn btn-primary" id="botao2"/>
-
-            <h1 style="color: blue"> <%=msg%></h1>
-            <h1 style="color: red"> <%=erro%></h1>
-        </form>
-        <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Nome</th>
-      <th scope="col">Endereço</th>
-      <th scope="col">Deletar</th>
-    </tr>
-  </thead>
-            <%for (Fornecedor f : Fornecedor.getFornecedores()) {%>
-            <tr>
-                <th><%=f.getNm_fornecedor()%></th>
-                <th><%=f.getNm_endereco()%></th>
-                <td>
                     <form>
-                        <input type="hidden" name="id" value="<%=f.getCd_fornecedor()%>" />
-                        <input type="submit" name="deletarFornecedor" value="Remover Usuário" class="btn btn-primary"/>
+                        <div class="form-group full" style="margin-top: 10px;">
+                            <input type="text" class="form-control" name="nomeFornecedor" id="nome" placeholder="Nome"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="enderecoFornecedor" id="end" placeholder="Endereço"/>
+                        </div>
+                        <input type="submit" name="btnCadastro" value="Cadastrar" class="btn btn-primary" id="botao2"/>
+
+                        <h1 style="color: blue"> <%=msg%></h1>
+                        <h1 style="color: red"> <%=erro%></h1>
                     </form>
-                </td>
-            </tr>
-            <%}%>
-        </table>
-        
-        <%}%>
+                </div>
+                <div class="col-md-6 line-vertical" style="margin-top: 10px;">
+                    <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Endereço</th>
+                            <th scope="col">Deletar</th>
+                        </tr>
+                    </thead>
+                    <%for (Fornecedor f : Fornecedor.getFornecedores()) {%>
+                    <tr>
+                        <th><%=f.getNm_fornecedor()%></th>
+                        <th><%=f.getNm_endereco()%></th>
+                        <td>
+                            <form>
+                                <input type="hidden" name="id" value="<%=f.getCd_fornecedor()%>" />
+                                <input type="submit" name="deletarFornecedor" value="Remover Usuário" class="btn btn-primary"/>
+                            </form>
+                        </td>
+                    </tr>
+                    <%}%>
+                </table>
+
+                <%}%>
+            </div>
+        </div>
 
         <%@include file="WEB-INF/jspf/footer.jspf" %>
     </body>
