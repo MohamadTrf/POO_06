@@ -87,14 +87,16 @@
     </form>
 
     <h3>Produtos Cadastrados</h3>
-    <table border="1">
-        <tr>
-            <th>Nome</th>
-            <th>Quantidade</th>
-            <th>Valor de Custo</th>
-            <th>Valor de venda</th>
-            <th>Fornecedor</th>
-        </tr>
+        <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Quantidade</th>
+      <th scope="col">Valor de Custo</th>
+      <th scope="col">Valor de Venda</th>
+       <th scope="col">Fornecedor</th>
+    </tr>
+  </thead>
         <% for (Produto c : Produto.getProdutos()) {%>
         <tr>
             <td name="nomeProduto"><%=c.getNm_produto()%></td>
@@ -105,7 +107,7 @@
             <td>
                 <form>
                     <input type="hidden" name="id" value="<%=c.getCd_produto()%>" />
-                    <input type="submit" name="deleteProduto" value="Deletar"/>
+                    <input type="submit" class="btn btn-primary" name="deleteProduto" value="Deletar"/>
                 </form>
                 <form action="produto/alterProduct.jsp">
                     <input type="hidden" name="nomeProdutoAlter" value="<%=c.getNm_produto()%>" />
@@ -114,7 +116,7 @@
                     <input type="hidden" name="valorVendaAlter" value="<%=c.getVl_venda()%>" />
                     <input type="hidden" name="idFornecedorAlter" value="<%=c.getPk_fornecedor()%>" />
                     <input type="hidden" name="idF" value="<%=c.getCd_produto()%>"/>
-                    <input type="submit" name="alterarProduto" value="Alterar"/>
+                    <input type="submit" class="btn btn-primary" name="alterarProduto" value="Alterar"/>
                 </form>
             </td>
         </tr>

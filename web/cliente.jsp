@@ -85,18 +85,18 @@
 
             <h1 style="color: blue"> <%=msg%></h1>
             <h1 style="color: red"> <%=erro%></h1>
-
         </form>
-            <a href="home.jsp">Voltar  </a>
-        <h3>Clientes Cadastrados</h3>
-        <table border="1">
-            <tr>
-                <th>Nome</th>
-                <th>Endereço</th>
-                <th>CPF</th>
-                <th>Email</th>
-                <th>Deletar</th>
-            </tr>
+    
+     <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Nome  </th>
+      <th scope="col">Endereço</th>
+      <th scope="col">Email</th>
+      <th scope="col">CPF</th>
+      <th scope="col">Deletar</th>
+    </tr>
+  </thead>
             <% for (Cliente c : Cliente.getClientes()) {%>
             <tr>
                 <td><%=c.getNm_cliente()%></td>
@@ -106,13 +106,13 @@
                 <td>
                     <form>
                         <input type="hidden" name="id" value="<%=c.getCd_cliente()%>" />
-                        <input type="submit" name="deleteCliente" value="Deletar"/>
+                        <input type="submit" class="btn btn-primary" name="deleteCliente" value="Deletar"/>
                     </form>
                 </td>
             </tr>
             <%}%>
         </table>
-
+ <a href="home.jsp">VOLTAR</a>
         <%@include file="WEB-INF/jspf/footer.jspf" %>
     </body>
 
