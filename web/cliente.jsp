@@ -70,7 +70,7 @@
                             <input type="text" class="form-control" name="cpfCliente" placeholder="CPF"/>
                         </div>
                         <div class="form-group full">
-                            <input type="text" class="form-control" name="emailCliente" placeholder="Endereço"/>
+                            <input type="text" class="form-control" name="emailCliente" placeholder="Email"/>
                         </div>
 
                         <input type="submit" name="cadastrarCliente" value="Cadastrar Cliente" class="btn btn-primary"/>
@@ -86,8 +86,8 @@
                             <tr>
                                 <th scope="col">Nome  </th>
                                 <th scope="col">Endereço</th>
-                                <th scope="col">Email</th>
                                 <th scope="col">CPF</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Deletar</th>
                             </tr>
                         </thead>

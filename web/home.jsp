@@ -19,7 +19,7 @@
 
         <style>
             .card {
-                height: 70%;
+                height: 65%;
             }
             #botao4{
                 margin-left: 22%;

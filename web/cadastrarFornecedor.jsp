@@ -90,7 +90,7 @@
                             <td>
                                 <form>
                                     <input type="hidden" name="id" value="<%=f.getCd_fornecedor()%>" />
-                                    <input type="submit" name="deletarFornecedor" value="Remover Usuário" class="btn btn-primary"/>
+                                    <input type="submit" name="deletarFornecedor" value="Remover Fornecedor" class="btn btn-primary"/>
                                 </form>
                             </td>
                         </tr>

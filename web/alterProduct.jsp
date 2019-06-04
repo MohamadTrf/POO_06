@@ -33,49 +33,49 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Alterar Produto</title>
-            <%@include file="WEB-INF/jspf/header.jspf" %>
-            
-            <style>
-                #remove {
-                 margin-bottom: -10%;   
-                }
-                </style>
-            
-            
+        <%@include file="WEB-INF/jspf/header.jspf" %>
+
+        <style>
+            #remove {
+                margin-bottom: -10%;   
+            }
+        </style>
+
+
     </head>
-   <body>
+    <body>
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
 
                     <form>
-    <div class="form-group" style="margin-top: 10px;">
-   <input type="text" class="form-control" value="<%=nome%>" name="nomeProdutoAlter" />
-    </div>
-     <div class="form-group">
-   <input type="text" class="form-control" value="<%=qtd%>" name="qtdProdutoAlter"/>
-   </div>
-   <div class="form-group">
-  <input type="text" class="form-control" value="<%=valorCusto%>" name="valorCustoAlter"/>
-  </div>
-  <div class="form-group">
-  <input type="text" class="form-control" value="<%=valorVenda%>" name="valorVendaAlter"/>
-   </div>
-    
-            <select name="idFornecedorAlter" class="form-control">
-                    <%for (Fornecedor f : Fornecedor.getFornecedores()) {%> 
-                    <option  value="<%=idFornecedor%>"><%=f.getNm_fornecedor()%> </option>  
-                <%}%>
-            </select>
-            <input type="hidden" name="idP" value="<%=id%>" /> 
-            <input type="submit" name="salvar" value="Alterar Produto" class="btn btn-primary" id="remove"/>
-            <br />
-                     <br />
-                              <br />
-            <h1 style="color: blue"> <%=msg%></h1>
-            <h1 style="color: red"> <%=erro%></h1>
+                        <div class="form-group" style="margin-top: 10px;">
+                            <input type="text" class="form-control" value="<%=nome%>" name="nomeProdutoAlter" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" value="<%=qtd%>" name="qtdProdutoAlter"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" value="<%=valorCusto%>" name="valorCustoAlter"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" value="<%=valorVenda%>" name="valorVendaAlter"/>
+                        </div>
 
-        </form>
+                        <select name="idFornecedorAlter" class="form-control">
+                            <%for (Fornecedor f : Fornecedor.getFornecedores()) {%> 
+                            <option  value="<%=idFornecedor%>"><%=f.getNm_fornecedor()%> </option>  
+                            <%}%>
+                        </select>
+                        <input type="hidden" name="idP" value="<%=id%>" /> 
+                        <input type="submit" name="salvar" value="Alterar Produto" class="btn btn-primary" id="remove"/>
+                        <br />
+                        <br />
+                        <br />
+                        <h1 style="color: blue"> <%=msg%></h1>
+                        <h1 style="color: red"> <%=erro%></h1>
+
+                    </form>
                 </div>
             </div>
         </div>
