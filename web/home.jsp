@@ -55,10 +55,13 @@
                 }
         %>
 
-        <h3>Bem vindo <%=user.getNm_user()%></h3>
-        <br>
-        <h5><strong>Seu nivel de permissões é de <%=acesso%></strong></h5>
-        <h5>Você tem acesso as seguintes funcionalidades: </h5>
+        <div class="text-center">
+            <br>
+            <h3>Bem vindo <%=user.getNm_user()%></h3>
+            <h5><strong>Seu nivel de permissões é de <%=acesso%></strong></h5>
+            <br>
+        </div>
+
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
