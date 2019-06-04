@@ -47,7 +47,7 @@
                 <td>
                     <form>
                         <input type="hidden" name="id" value="<%=p.getCd_ponto()%>" />
-                        <input type="submit" name="deletePonto" value="Deletar"/>
+                        <input class="btn btn-outline-primary" type="submit" name="deletePonto" value="Deletar"/>
                     </form>
                 </td>
             </tr>
