@@ -55,9 +55,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastrar usuário</title>
-         <%@include file="WEB-INF/jspf/header.jspf" %>
-         
-         <style>
+        <%@include file="WEB-INF/jspf/header.jspf" %>
+
+        <style>
             .form-group {
                 width: 20%;
                 margin-top: 2%;
@@ -69,8 +69,8 @@
             }
 
         </style>
-         
-         
+
+
     </head>
     <body>
         <%if (session.getAttribute("user") == null) {%>
@@ -79,41 +79,43 @@
         <%} else {%>
 
         <% if (!user.getNm_cargo().equals("Gerente")) {%>
-        <h2>Você não tem permissão para acessar esse recurso <a href="../login.jsp"> clique aqui para voltar!</a></h2>
+        <br>
+        <h2 class="text-center">Você não tem permissão para acessar esse recurso</h2>
 
         <%} else {%>
         <h1>Cadastre os Funcionários que você deseja que utilize o Software senhor <%=user.getNm_user()%>!</h1>
-       <form>
+        <form>
             <div class="form-group">
                 <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome"/>
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" name="senha" id="end" placeholder="Senha"/>
             </div>
-           <div class="form-group">
-            <select name="cargo" placeholder="Cargo" class="form-control">
-                <option value="Supervisor"> Supervisor </option>
-                <option value="Vendedor">Vendedor</option>
-            </select>
-                </div>
-             <div class="form-group">
-            <select name="permissao" placeholder="Código Permissão" class="form-control" >
-                <option value="2"> 2</option>
-                <option value="3"> 3</option>
-            </select>
-                 </div>
+            <div class="form-group">
+                <select name="cargo" placeholder="Cargo" class="form-control">
+                    <option value="Supervisor"> Supervisor </option>
+                    <option value="Vendedor">Vendedor</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select name="permissao" placeholder="Código Permissão" class="form-control" >
+                    <option value="2"> 2</option>
+                    <option value="3"> 3</option>
+                </select>
+            </div>
             <h1 style="blue"> <%=msg%></h1>
             <h1 style="red"> <%=erro%></h1>
             <input type="submit" name="cadastrarUser" value="Cadastrar Usuario" class="btn btn-primary"  id="botao2"/>
         </form>
-             <table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">Nome</th>
-      <th scope="col">Cargo</th>
-      <th scope="col">Deletar</th>
-    </tr>
-  </thead>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Cargo</th>
+                    <th scope="col">Deletar</th>
+                </tr>
+            </thead>
             <%for (Usuario u : Usuario.getUsers()) {%>
             <tr>
                 <th><%=u.getNm_user()%></th>
@@ -126,10 +128,12 @@
                 </td>
             </tr>
             <%}%>
+
         </table>
-        <%}
-            }%>
-            
+
+        <%  } %>
+        <%}%>
+
     </body>
-    <a href="home.jsp">VOLTAR</a>
+
 </html>

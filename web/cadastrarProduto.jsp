@@ -83,7 +83,7 @@
                         <option value="<%=f.getCd_fornecedor()%>"> <%=f.getNm_fornecedor()%> </option> 
                         <%}%>
                         </select>
-                        
+
                         <br>
                         <input type="submit" name="cadastraProduto" value="Cadastrar Produto" class="btn btn-primary" id="botao2"/>
 
@@ -94,7 +94,7 @@
                 </div>
 
                 <div class="col-md-6 line-vertical" style="margin-top: 10px;">
-                    <table class="table table-bordered">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">Nome</th>

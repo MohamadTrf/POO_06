@@ -81,7 +81,7 @@
                 </div>
 
                 <div class="col-md-6 line-vertical" style="margin-top: 10px;">
-                    <table class="table table-bordered">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">Nome  </th>

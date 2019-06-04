@@ -44,7 +44,7 @@
 
 
         <style>
-                .line-vertical{ 
+            .line-vertical{ 
                 border-left: 5px solid #007bff;
             }
         </style>
@@ -75,32 +75,32 @@
                     </form>
                 </div>
                 <div class="col-md-6 line-vertical" style="margin-top: 10px;">
-                    <table class="table table-bordered">
-                    <thead>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Endereço</th>
+                                <th scope="col">Deletar</th>
+                            </tr>
+                        </thead>
+                        <%for (Fornecedor f : Fornecedor.getFornecedores()) {%>
                         <tr>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Endereço</th>
-                            <th scope="col">Deletar</th>
+                            <th><%=f.getNm_fornecedor()%></th>
+                            <th><%=f.getNm_endereco()%></th>
+                            <td>
+                                <form>
+                                    <input type="hidden" name="id" value="<%=f.getCd_fornecedor()%>" />
+                                    <input type="submit" name="deletarFornecedor" value="Remover Usuário" class="btn btn-primary"/>
+                                </form>
+                            </td>
                         </tr>
-                    </thead>
-                    <%for (Fornecedor f : Fornecedor.getFornecedores()) {%>
-                    <tr>
-                        <th><%=f.getNm_fornecedor()%></th>
-                        <th><%=f.getNm_endereco()%></th>
-                        <td>
-                            <form>
-                                <input type="hidden" name="id" value="<%=f.getCd_fornecedor()%>" />
-                                <input type="submit" name="deletarFornecedor" value="Remover Usuário" class="btn btn-primary"/>
-                            </form>
-                        </td>
-                    </tr>
+                        <%}%>
+                    </table>
+
                     <%}%>
-                </table>
-
-                <%}%>
+                </div>
             </div>
-        </div>
 
-        <%@include file="WEB-INF/jspf/footer.jspf" %>
+            <%@include file="WEB-INF/jspf/footer.jspf" %>
     </body>
 </html>
