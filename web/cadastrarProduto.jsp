@@ -77,12 +77,16 @@
                         <div class="form-group">
                             <input type="text" class="form-control" name="valorProduto" id="email" placeholder="Valor"/>
                         </div>
-                        <input type="submit" name="cadastraProduto" value="Cadastrar Produto" class="btn btn-primary" id="botao2"/>
-                        <select name="fornecedorProduto"/> 
+
+                        <select class="form-control" name="fornecedorProduto"/> 
                         <%for (Fornecedor f : Fornecedor.getFornecedores()) {%>  
-                        <option value="<%=f.getCd_fornecedor()%>"><%=f.getNm_fornecedor()%> </option> 
+                        <option value="<%=f.getCd_fornecedor()%>"> <%=f.getNm_fornecedor()%> </option> 
                         <%}%>
                         </select>
+                        
+                        <br>
+                        <input type="submit" name="cadastraProduto" value="Cadastrar Produto" class="btn btn-primary" id="botao2"/>
+
                         <h1 style="color: blue"> <%=msg%></h1>
                         <h1 style="color: red"> <%=erro%></h1>
 
@@ -95,11 +99,11 @@
                             <tr>
                                 <th scope="col">Nome</th>
                                 <th scope="col">Quantidade</th>
-                                <th scope="col">Valor de Custo</th>
-                                <th scope="col">Valor de Venda</th>
+                                <th scope="col">Custo</th>
+                                <th scope="col">Venda</th>
                                 <th scope="col">Fornecedor</th>
                                 <th scope="col">Opcões</th>
-                                
+
                             </tr>
                         </thead>
                         <% for (Produto c : Produto.getProdutos()) {%>
@@ -112,7 +116,7 @@
                             <td>
                                 <form>
                                     <input type="hidden" name="id" value="<%=c.getCd_produto()%>" />
-                                    <input type="submit" class="btn btn-primary" name="deleteProduto" value="Deletar" id="delete"/>
+                                    <input type="submit" class="btn btn-danger" name="deleteProduto" value="Deletar" id="delete"/>
                                 </form>
                                 <form action="produto/alterProduct.jsp">
                                     <input type="hidden" name="nomeProdutoAlter" value="<%=c.getNm_produto()%>" />
