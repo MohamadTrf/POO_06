@@ -10,7 +10,6 @@
 <%
     String erro = "";
     String msg = "";
-
     if (request.getParameter("deletePonto") != null) {
         try {
             erro = "";
