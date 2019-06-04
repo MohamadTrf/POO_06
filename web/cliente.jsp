@@ -8,26 +8,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<style>
-    .form-group {
-        width: 20%;
-        margin-top: 2%;
-        margin-left: 40%;
-    }
-    end {
-
-    }
-    cpf {
-
-    }
-    #botao1 {
-        margin-left: 40%;
-        width: 20%;
-
-    }
-</style>
-
-
 <%
     String erro = "";
     String msg = "";
@@ -64,55 +44,74 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Clientes</title>
         <%@include file="WEB-INF/jspf/header.jspf" %>
+
+        <style>
+            .line-vertical{ 
+                border-left: 5px solid #007bff;
+            }
+        </style>
     </head>
 
     <body>
 
-        <form>
-            <div class="form-group">
-                <input type="text" class="form-control" name="nomeCliente" id="nome" placeholder="Nome"/>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="enderecoCliente" id="end" placeholder="Endereço"/>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="cpfCliente" id="cpf" placeholder="CPF"/>
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" name="emailCliente" id="email" placeholder="Endereço"/>
-            </div>
-            <input type="submit" name="cadastrarCliente" value="Cadastrar Cliente" class="btn btn-primary" id="botao1"/>
+        <div class="container">
 
-            <h1 style="color: blue"> <%=msg%></h1>
-            <h1 style="color: red"> <%=erro%></h1>
-        </form>
-    
-     <table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">Nome  </th>
-      <th scope="col">Endereço</th>
-      <th scope="col">Email</th>
-      <th scope="col">CPF</th>
-      <th scope="col">Deletar</th>
-    </tr>
-  </thead>
-            <% for (Cliente c : Cliente.getClientes()) {%>
-            <tr>
-                <td><%=c.getNm_cliente()%></td>
-                <td><%=c.getNm_endereco()%></td>
-                <td><%=c.getCd_cpf()%></td>
-                <td><%=c.getNm_email()%></td>
-                <td>
+            <div class="row">
+
+                <div class="col-md-6">
                     <form>
-                        <input type="hidden" name="id" value="<%=c.getCd_cliente()%>" />
-                        <input type="submit" class="btn btn-primary" name="deleteCliente" value="Deletar"/>
+                        <div class="form-group full" style="margin-top: 10px;">
+                            <input type="text" class="form-control" name="nomeCliente" placeholder="Nome"/>
+                        </div>
+                        <div class="form-group full">
+                            <input type="text" class="form-control" name="enderecoCliente" placeholder="Endereço"/>
+                        </div>
+                        <div class="form-group full">
+                            <input type="text" class="form-control" name="cpfCliente" placeholder="CPF"/>
+                        </div>
+                        <div class="form-group full">
+                            <input type="text" class="form-control" name="emailCliente" placeholder="Endereço"/>
+                        </div>
+
+                        <input type="submit" name="cadastrarCliente" value="Cadastrar Cliente" class="btn btn-primary"/>
+
+                        <h1 style="color: blue"> <%=msg%></h1>
+                        <h1 style="color: red"> <%=erro%></h1>
                     </form>
-                </td>
-            </tr>
-            <%}%>
-        </table>
- <a href="home.jsp">VOLTAR</a>
+                </div>
+
+                <div class="col-md-6 line-vertical" style="margin-top: 10px;">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nome  </th>
+                                <th scope="col">Endereço</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">CPF</th>
+                                <th scope="col">Deletar</th>
+                            </tr>
+                        </thead>
+                        <% for (Cliente c : Cliente.getClientes()) {%>
+                        <tr>
+                            <td><%=c.getNm_cliente()%></td>
+                            <td><%=c.getNm_endereco()%></td>
+                            <td><%=c.getCd_cpf()%></td>
+                            <td><%=c.getNm_email()%></td>
+                            <td>
+                                <form>
+                                    <input type="hidden" name="id" value="<%=c.getCd_cliente()%>" />
+                                    <input type="submit" class="btn btn-primary" name="deleteCliente" value="Deletar"/>
+                                </form>
+                            </td>
+                        </tr>
+                        <%}%>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+
         <%@include file="WEB-INF/jspf/footer.jspf" %>
     </body>
 
