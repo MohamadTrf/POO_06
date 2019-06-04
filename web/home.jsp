@@ -85,8 +85,6 @@
                 </div>
             </div>
         </div>
-
-
         <br>
         <%if (nivel == 2 || nivel == 3) {%>
         <a href="cadastrarPonto.jsp"> Cadastrar Ponto </a>

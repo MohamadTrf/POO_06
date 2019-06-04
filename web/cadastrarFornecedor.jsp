@@ -63,7 +63,6 @@
         <h2>Você não está autenticado para acessar este recurso</h2>
         <a href="login.jsp">Clique aqui para Voltar </a> 
         <%} else {%>
-        <h1>Fornecedores</h1>
         <%@include file="WEB-INF/jspf/header.jspf" %>
 
         <form>
@@ -78,13 +77,14 @@
             <h1 style="color: blue"> <%=msg%></h1>
             <h1 style="color: red"> <%=erro%></h1>
         </form>
-        
-         <table border="1">
-            <tr>
-                <th>Nome</th>
-                <th>Endereço</th>
-                <th>Deletar</th>
-            </tr>
+        <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Endereço</th>
+      <th scope="col">Deletar</th>
+    </tr>
+  </thead>
             <%for (Fornecedor f : Fornecedor.getFornecedores()) {%>
             <tr>
                 <th><%=f.getNm_fornecedor()%></th>
@@ -92,7 +92,7 @@
                 <td>
                     <form>
                         <input type="hidden" name="id" value="<%=f.getCd_fornecedor()%>" />
-                        <input type="submit" name="deletarFornecedor" value="Remover Usuário"/>
+                        <input type="submit" name="deletarFornecedor" value="Remover Usuário" class="btn btn-primary"/>
                     </form>
                 </td>
             </tr>

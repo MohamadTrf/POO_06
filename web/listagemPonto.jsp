@@ -54,13 +54,13 @@
                 <td>
                     <form>
                         <input type="hidden" name="id" value="<%=p.getCd_ponto()%>" />
-                        <input type="submit" name="deletePonto" value="Deletar"/>
+                        <input type="submit" name="deletePonto" value="Deletar" class="btn btn-primary" />
                     </form>
                 </td>
                 <td>
                     <form action="usuarioPonto.jsp">
                         <input type="hidden" name="id" value="<%=p.getCd_ponto()%>" />
-                        <input type="submit" name="viewPonto" value="Visualizar"/>
+                        <input type="submit" name="viewPonto" value="Visualizar" class="btn btn-primary"/>
                     </form>
                 </td>
             </tr>
